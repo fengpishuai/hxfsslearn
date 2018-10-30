@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.yycg.dao.mapper.HxQuestionMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.yycg.pojo.po.HxQuestion" >
+    <result column="F_PKEY" property="fPkey" jdbcType="VARCHAR" />
+    <result column="F_ZDR" property="fZdr" jdbcType="VARCHAR" />
+    <result column="F_ZDSJ" property="fZdsj" jdbcType="VARCHAR" />
+    <result column="F_WTTITLE" property="fWttitle" jdbcType="VARCHAR" />
+    <result column="F_DISABLE" property="fDisable" jdbcType="VARCHAR" />
+    <result column="F_PROJECT" property="fProject" jdbcType="VARCHAR" />
+    <result column="F_T1" property="fT1" jdbcType="VARCHAR" />
+    <result column="F_T2" property="fT2" jdbcType="VARCHAR" />
+    <result column="F_T3" property="fT3" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.hlic.yycg.pojo.po.HxQuestion" extends="BaseResultMap" >
+    <result column="F_WTCONTENT" property="fWtcontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_PKEY, F_ZDR, F_ZDSJ, F_WTTITLE, F_DISABLE, F_PROJECT, F_T1, F_T2, F_T3
+  </sql>
+  <sql id="Blob_Column_List" >
+    F_WTCONTENT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.hlic.yycg.pojo.po.HxQuestionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hx_question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.yycg.pojo.po.HxQuestionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from hx_question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.yycg.pojo.po.HxQuestionExample" >
+    delete from hx_question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.yycg.pojo.po.HxQuestion" >
+    insert into hx_question (F_PKEY, F_ZDR, F_ZDSJ, 
+      F_WTTITLE, F_DISABLE, F_PROJECT, 
+      F_T1, F_T2, F_T3, F_WTCONTENT
+      )
+    values (#{fPkey,jdbcType=VARCHAR}, #{fZdr,jdbcType=VARCHAR}, #{fZdsj,jdbcType=VARCHAR}, 
+      #{fWttitle,jdbcType=VARCHAR}, #{fDisable,jdbcType=VARCHAR}, #{fProject,jdbcType=VARCHAR}, 
+      #{fT1,jdbcType=VARCHAR}, #{fT2,jdbcType=VARCHAR}, #{fT3,jdbcType=VARCHAR}, #{fWtcontent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.yycg.pojo.po.HxQuestion" >
+    insert into hx_question
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        F_PKEY,
+      </if>
+      <if test="fZdr != null" >
+        F_ZDR,
+      </if>
+      <if test="fZdsj != null" >
+        F_ZDSJ,
+      </if>
+      <if test="fWttitle != null" >
+        F_WTTITLE,
+      </if>
+      <if test="fDisable != null" >
+        F_DISABLE,
+      </if>
+      <if test="fProject != null" >
+        F_PROJECT,
+      </if>
+      <if test="fT1 != null" >
+        F_T1,
+      </if>
+      <if test="fT2 != null" >
+        F_T2,
+      </if>
+      <if test="fT3 != null" >
+        F_T3,
+      </if>
+      <if test="fWtcontent != null" >
+        F_WTCONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        #{fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fZdr != null" >
+        #{fZdr,jdbcType=VARCHAR},
+      </if>
+      <if test="fZdsj != null" >
+        #{fZdsj,jdbcType=VARCHAR},
+      </if>
+      <if test="fWttitle != null" >
+        #{fWttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fDisable != null" >
+        #{fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="fProject != null" >
+        #{fProject,jdbcType=VARCHAR},
+      </if>
+      <if test="fT1 != null" >
+        #{fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="fT2 != null" >
+        #{fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="fT3 != null" >
+        #{fT3,jdbcType=VARCHAR},
+      </if>
+      <if test="fWtcontent != null" >
+        #{fWtcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.yycg.pojo.po.HxQuestionExample" resultType="java.lang.Integer" >
+    select count(*) from hx_question
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update hx_question
+    <set >
+      <if test="record.fPkey != null" >
+        F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fZdr != null" >
+        F_ZDR = #{record.fZdr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fZdsj != null" >
+        F_ZDSJ = #{record.fZdsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fWttitle != null" >
+        F_WTTITLE = #{record.fWttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDisable != null" >
+        F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fProject != null" >
+        F_PROJECT = #{record.fProject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT1 != null" >
+        F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT2 != null" >
+        F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT3 != null" >
+        F_T3 = #{record.fT3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fWtcontent != null" >
+        F_WTCONTENT = #{record.fWtcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update hx_question
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_ZDR = #{record.fZdr,jdbcType=VARCHAR},
+      F_ZDSJ = #{record.fZdsj,jdbcType=VARCHAR},
+      F_WTTITLE = #{record.fWttitle,jdbcType=VARCHAR},
+      F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      F_PROJECT = #{record.fProject,jdbcType=VARCHAR},
+      F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      F_T3 = #{record.fT3,jdbcType=VARCHAR},
+      F_WTCONTENT = #{record.fWtcontent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update hx_question
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_ZDR = #{record.fZdr,jdbcType=VARCHAR},
+      F_ZDSJ = #{record.fZdsj,jdbcType=VARCHAR},
+      F_WTTITLE = #{record.fWttitle,jdbcType=VARCHAR},
+      F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      F_PROJECT = #{record.fProject,jdbcType=VARCHAR},
+      F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      F_T3 = #{record.fT3,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

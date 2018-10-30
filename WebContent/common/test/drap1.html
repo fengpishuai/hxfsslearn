@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/jquery.gridly.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.gridly.js"></script>
+<style type="text/css">
+.gridly {
+  position: relative;
+  width: 960px;
+}
+.brick.small {
+  width: 140px;
+  height: 140px;
+}
+.brick.large {
+  width: 300px;
+  height: 300px;
+}
+.small{
+    background-color:#cb0006;
+}
+.large{
+    background-color:#cb0006; 
+}
+.leftdiv{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    width:300px;
+}
+.content{
+    position:absolute;
+    left:300px;
+    top:0px;
+    bottom:0px;
+    right:0px;
+}
+</style>
+</head>
+<body>
+<div class="leftdiv">
+    <button type="button" class="select button">ADD</button>
+</div>
+<div class="content">
+	<div class="gridly">
+	  <div class="brick small"></div>
+	  <div class="brick small"></div>
+	  <div class="brick small"></div>
+	  <div class="brick small"></div>
+	  <div class="brick small"></div>
+	  <div class="brick small"></div> 
+	</div>
+	<p class="actions">
+	  <a class="add button" href="#">Add</a>
+	</p>
+</div>
+
+</body>
+<script>
+$('.gridly').gridly({
+    base: 60, // px 
+    gutter: 20, // px
+    columns: 12
+  });
+  
+(function() {
+	  $(function() {
+	    var brick = "<div class='brick small'><div class='delete'>&times;</div></div>";
+	    var select = "<div class='brick small'><select><option>1</option><option selected='selected'>2</option></select></div>"
+	     
+	    $(document).on("click", ".gridly .delete", function(event) {
+	      var $this;
+	      event.preventDefault();
+	      event.stopPropagation();
+	      $this = $(this);
+	      $this.closest('.brick').remove();
+	      return $('.gridly').gridly('layout');
+	    });
+	    $(document).on("click", ".add", function(event) {
+	      event.preventDefault();
+	      event.stopPropagation();
+	      $('.gridly').append(brick);
+	      return $('.gridly').gridly();
+	    });
+	    $(document).on("click", ".select", function(event) {
+	      event.preventDefault();
+	      event.stopPropagation();
+	      $('.gridly').append(select);
+	      return $('.gridly').gridly();
+	    });
+	    return $('.gridly').gridly();
+	  });
+
+	}).call(this);
+</script>
+
+</html>

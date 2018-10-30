@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+.menu-logo{
+	background-image: url('images/menu.png');
+    height: 17px;
+    width: 17px;
+    float: left;
+    margin-top: 6px;
+    margin-left: 24px;
+}
+.list-img{
+	float: left;
+	background-image: url('images/yw.png');
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    margin-right: 13px;
+}
+.list-name{
+	float:left;
+	font-size:13px;
+}
+.list-jiantou{
+	float: right;
+    background-image: url('images/jiantou.png');
+    background-repeat: no-repeat;
+    width: 23px;
+    height: 20px;
+    font-size: 28px;
+}
+.closeimg{
+	float: right;
+	background-image: url('images/close.png');
+	background-repeat: no-repeat;
+    width: 16px;
+    height: 17px;
+    margin-top: 12px;
+    margin-right: 16px;
+    cursor: pointer;
+}

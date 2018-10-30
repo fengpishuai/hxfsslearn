@@ -1,0 +1,164 @@
+@CHARSET "UTF-8";
+.dctlist{
+	background-image: url('image/dctlist.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.dct1{
+	background-image: url('image/dct1.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.field{
+	background-image: url('image/field.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.save-ico{
+	background-image: url(image/save.png);
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.del-ico{
+	background-image: url('image/del.png');
+    width: 14px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.giveUp-ico{
+	background-image: url('image/giveUp.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.add-ico{
+	background-image: url('image/add.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.refresh-ico{
+	background-image: url('image/refresh.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.cache-ico{
+	background-image: url('image/cache.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.edit-ico{
+	background-image: url('image/edit.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.grid-add-ico{
+	background-image: url('image/grid-add.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.grid-del-ico{
+	background-image: url('image/grid-del.png');
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.button-name{
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 2px;
+}
+.listspan{
+	background-image: url(image/list.png);
+    background-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 12px;
+}
+.storelist{
+	background-image: url(image/storelist.png);
+    background-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 7px;
+    margin-left: 12px;
+}
+.listlispan{
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+}
+.title-span{
+	display: inline-block;
+    margin-top: 6px;
+    vertical-align: top;
+}
+.select-title{
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+.selectFocus{
+	border-top: 3px solid #388EDD;
+}
+.left-ul{
+	margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+.ui-display{
+	display:none;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/jquery.dad.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.dad.js"></script>
+<style type="text/css">
+.wrap { width: 1000px; height: 220px; margin: 0 auto; font-family: arial,SimSun; font-size: 0; overflow: hidden;}
+.jq22 { float: left; width: 400px;}
+.jq22 .item { display: inline-block; width: 180px; height: 100px; margin: 0 20px 20px 0;}
+.item1 { background-color: #1faeff;}
+.item2 { background-color: #ff2e12;}
+.item3 { background-color: #00c13f;}
+.item4 { background-color: #e1b700;}
+.jq22 span { display: block; height: 100px; line-height: 100px; font-size: 2rem; text-align: center; color: #fff;}
+
+.btns { width: 1000px; margin-left: auto; margin-right: auto;}
+
+.dropzone { height: 220px; margin: 0 0 0 400px; background-color: #ccc;}
+.dropzone span { display: inline-block; width: 50px; height: 50px; margin: 10px 0 0 10px; line-height: 50px; font-size: 1rem; text-align: center; color: #fff; background-color: #7200ac;}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="jq22">
+		<div class="item item1"><span>1</span></div>
+		<div class="item item2"><span>2</span></div>
+		<div class="item item3"><span>3</span></div>
+		<div class="item item4"><span>4</span></div>
+	</div>
+	
+	<div class="dropzone"></div>
+</div>
+<p class="jq22-explain">拖放到右边增加</p>
+</body>
+<script>
+$(function(){ 
+	var d = $('.jq22').dad();
+	var target = $('.dropzone');
+
+	d.addDropzone(target, function(e){
+		e.find('span').appendTo(target); 
+		e.remove();
+	});
+});
+</script>
+
+</html>

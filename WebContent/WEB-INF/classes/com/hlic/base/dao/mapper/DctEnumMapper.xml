@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.mapper.DctEnumMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.DctEnum" >
+    <result column="F_BH" property="fBh" jdbcType="VARCHAR" />
+    <result column="F_NH" property="fNh" jdbcType="VARCHAR" />
+    <result column="F_MC" property="fMc" jdbcType="VARCHAR" />
+    <result column="F_JS" property="fJs" jdbcType="INTEGER" />
+    <result column="F_MX" property="fMx" jdbcType="VARCHAR" />
+    <result column="F_T1" property="fT1" jdbcType="VARCHAR" />
+    <result column="F_T2" property="fT2" jdbcType="VARCHAR" />
+    <result column="F_T3" property="fT3" jdbcType="VARCHAR" />
+    <result column="F_T4" property="fT4" jdbcType="VARCHAR" />
+    <result column="F_T5" property="fT5" jdbcType="VARCHAR" />
+    <result column="F_T6" property="fT6" jdbcType="VARCHAR" />
+    <result column="F_N1" property="fN1" jdbcType="INTEGER" />
+    <result column="F_N2" property="fN2" jdbcType="VARCHAR" />
+    <result column="F_N3" property="fN3" jdbcType="VARCHAR" />
+    <result column="F_N4" property="fN4" jdbcType="VARCHAR" />
+    <result column="F_N5" property="fN5" jdbcType="VARCHAR" />
+    <result column="F_N6" property="fN6" jdbcType="VARCHAR" />
+    <result column="F_PARENT" property="fParent" jdbcType="VARCHAR" />
+    <result column="F_UTIME" property="fUtime" jdbcType="VARCHAR" />
+    <result column="F_USE" property="fUse" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_BH, F_NH, F_MC, F_JS, F_MX, F_T1, F_T2, F_T3, F_T4, F_T5, F_T6, F_N1, F_N2, F_N3, 
+    F_N4, F_N5, F_N6, F_PARENT, F_UTIME, F_USE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.DctEnumExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dct_enum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.DctEnumExample" >
+    delete from dct_enum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.DctEnum" >
+    insert into dct_enum (F_BH, F_NH, F_MC, 
+      F_JS, F_MX, F_T1, F_T2, 
+      F_T3, F_T4, F_T5, F_T6, 
+      F_N1, F_N2, F_N3, F_N4, 
+      F_N5, F_N6, F_PARENT, 
+      F_UTIME, F_USE)
+    values (#{fBh,jdbcType=VARCHAR}, #{fNh,jdbcType=VARCHAR}, #{fMc,jdbcType=VARCHAR}, 
+      #{fJs,jdbcType=INTEGER}, #{fMx,jdbcType=VARCHAR}, #{fT1,jdbcType=VARCHAR}, #{fT2,jdbcType=VARCHAR}, 
+      #{fT3,jdbcType=VARCHAR}, #{fT4,jdbcType=VARCHAR}, #{fT5,jdbcType=VARCHAR}, #{fT6,jdbcType=VARCHAR}, 
+      #{fN1,jdbcType=INTEGER}, #{fN2,jdbcType=VARCHAR}, #{fN3,jdbcType=VARCHAR}, #{fN4,jdbcType=VARCHAR}, 
+      #{fN5,jdbcType=VARCHAR}, #{fN6,jdbcType=VARCHAR}, #{fParent,jdbcType=VARCHAR}, 
+      #{fUtime,jdbcType=VARCHAR}, #{fUse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.DctEnum" >
+    insert into dct_enum
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fBh != null" >
+        F_BH,
+      </if>
+      <if test="fNh != null" >
+        F_NH,
+      </if>
+      <if test="fMc != null" >
+        F_MC,
+      </if>
+      <if test="fJs != null" >
+        F_JS,
+      </if>
+      <if test="fMx != null" >
+        F_MX,
+      </if>
+      <if test="fT1 != null" >
+        F_T1,
+      </if>
+      <if test="fT2 != null" >
+        F_T2,
+      </if>
+      <if test="fT3 != null" >
+        F_T3,
+      </if>
+      <if test="fT4 != null" >
+        F_T4,
+      </if>
+      <if test="fT5 != null" >
+        F_T5,
+      </if>
+      <if test="fT6 != null" >
+        F_T6,
+      </if>
+      <if test="fN1 != null" >
+        F_N1,
+      </if>
+      <if test="fN2 != null" >
+        F_N2,
+      </if>
+      <if test="fN3 != null" >
+        F_N3,
+      </if>
+      <if test="fN4 != null" >
+        F_N4,
+      </if>
+      <if test="fN5 != null" >
+        F_N5,
+      </if>
+      <if test="fN6 != null" >
+        F_N6,
+      </if>
+      <if test="fParent != null" >
+        F_PARENT,
+      </if>
+      <if test="fUtime != null" >
+        F_UTIME,
+      </if>
+      <if test="fUse != null" >
+        F_USE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fBh != null" >
+        #{fBh,jdbcType=VARCHAR},
+      </if>
+      <if test="fNh != null" >
+        #{fNh,jdbcType=VARCHAR},
+      </if>
+      <if test="fMc != null" >
+        #{fMc,jdbcType=VARCHAR},
+      </if>
+      <if test="fJs != null" >
+        #{fJs,jdbcType=INTEGER},
+      </if>
+      <if test="fMx != null" >
+        #{fMx,jdbcType=VARCHAR},
+      </if>
+      <if test="fT1 != null" >
+        #{fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="fT2 != null" >
+        #{fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="fT3 != null" >
+        #{fT3,jdbcType=VARCHAR},
+      </if>
+      <if test="fT4 != null" >
+        #{fT4,jdbcType=VARCHAR},
+      </if>
+      <if test="fT5 != null" >
+        #{fT5,jdbcType=VARCHAR},
+      </if>
+      <if test="fT6 != null" >
+        #{fT6,jdbcType=VARCHAR},
+      </if>
+      <if test="fN1 != null" >
+        #{fN1,jdbcType=INTEGER},
+      </if>
+      <if test="fN2 != null" >
+        #{fN2,jdbcType=VARCHAR},
+      </if>
+      <if test="fN3 != null" >
+        #{fN3,jdbcType=VARCHAR},
+      </if>
+      <if test="fN4 != null" >
+        #{fN4,jdbcType=VARCHAR},
+      </if>
+      <if test="fN5 != null" >
+        #{fN5,jdbcType=VARCHAR},
+      </if>
+      <if test="fN6 != null" >
+        #{fN6,jdbcType=VARCHAR},
+      </if>
+      <if test="fParent != null" >
+        #{fParent,jdbcType=VARCHAR},
+      </if>
+      <if test="fUtime != null" >
+        #{fUtime,jdbcType=VARCHAR},
+      </if>
+      <if test="fUse != null" >
+        #{fUse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.DctEnumExample" resultType="java.lang.Integer" >
+    select count(*) from dct_enum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dct_enum
+    <set >
+      <if test="record.fBh != null" >
+        F_BH = #{record.fBh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fNh != null" >
+        F_NH = #{record.fNh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fMc != null" >
+        F_MC = #{record.fMc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJs != null" >
+        F_JS = #{record.fJs,jdbcType=INTEGER},
+      </if>
+      <if test="record.fMx != null" >
+        F_MX = #{record.fMx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT1 != null" >
+        F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT2 != null" >
+        F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT3 != null" >
+        F_T3 = #{record.fT3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT4 != null" >
+        F_T4 = #{record.fT4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT5 != null" >
+        F_T5 = #{record.fT5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT6 != null" >
+        F_T6 = #{record.fT6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fN1 != null" >
+        F_N1 = #{record.fN1,jdbcType=INTEGER},
+      </if>
+      <if test="record.fN2 != null" >
+        F_N2 = #{record.fN2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fN3 != null" >
+        F_N3 = #{record.fN3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fN4 != null" >
+        F_N4 = #{record.fN4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fN5 != null" >
+        F_N5 = #{record.fN5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fN6 != null" >
+        F_N6 = #{record.fN6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fParent != null" >
+        F_PARENT = #{record.fParent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUtime != null" >
+        F_UTIME = #{record.fUtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUse != null" >
+        F_USE = #{record.fUse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dct_enum
+    set F_BH = #{record.fBh,jdbcType=VARCHAR},
+      F_NH = #{record.fNh,jdbcType=VARCHAR},
+      F_MC = #{record.fMc,jdbcType=VARCHAR},
+      F_JS = #{record.fJs,jdbcType=INTEGER},
+      F_MX = #{record.fMx,jdbcType=VARCHAR},
+      F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      F_T3 = #{record.fT3,jdbcType=VARCHAR},
+      F_T4 = #{record.fT4,jdbcType=VARCHAR},
+      F_T5 = #{record.fT5,jdbcType=VARCHAR},
+      F_T6 = #{record.fT6,jdbcType=VARCHAR},
+      F_N1 = #{record.fN1,jdbcType=INTEGER},
+      F_N2 = #{record.fN2,jdbcType=VARCHAR},
+      F_N3 = #{record.fN3,jdbcType=VARCHAR},
+      F_N4 = #{record.fN4,jdbcType=VARCHAR},
+      F_N5 = #{record.fN5,jdbcType=VARCHAR},
+      F_N6 = #{record.fN6,jdbcType=VARCHAR},
+      F_PARENT = #{record.fParent,jdbcType=VARCHAR},
+      F_UTIME = #{record.fUtime,jdbcType=VARCHAR},
+      F_USE = #{record.fUse,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

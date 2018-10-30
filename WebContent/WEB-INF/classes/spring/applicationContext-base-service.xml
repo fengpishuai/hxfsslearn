@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd ">
+<!-- 用于持有ApplicationContext,可以使用SpringContextHolder.getBean('xxxx')的静态方法得到spring bean对象 -->
+<bean class="com.hlic.base.process.utils.SpringContextHolder" lazy-init="false"/>
+<!-- 导出excel -->
+<bean id="excelExportSXXSSF" class="com.hlic.utils.ExcelExportSXXSSF"/>
+<!-- 用户管理 -->
+<bean id="userService" class="com.hlic.base.service.impl.UserServiceImpl"/>
+<bean id="activitiConsoleUtils" class="com.hlic.base.bill.ActivitiConsoleUtils"/>
+<bean id="employeeService" class="com.hlic.base.service.impl.EmployeeServiceImpl"/>
+<bean id="workFlowService" class="com.hlic.base.service.impl.WorkFlowServiceImpl"/>
+<bean id="sysMenusService" class="com.hlic.base.service.impl.SysMenusServiceImpl"/>
+<bean id="sysFuncService" class="com.hlic.base.service.impl.SysFuncServiceImpl"/>
+<bean id="sysRolesService" class="com.hlic.base.service.impl.SysRolesServiceImpl"/>
+<bean id="sysFuncGrpService" class="com.hlic.base.service.impl.SysFuncGrpServiceImpl"/>
+<bean id="sysUserRoleOrgService" class="com.hlic.base.service.impl.SysUserRoleOrgServiceImpl"/>
+<!-- 流程监听 -->
+<bean id="managerTaskHandler" class="com.hlic.base.bill.listener.ManagerTaskHandler"></bean> 
+<bean id="cspdTaskHandler" class="com.hlic.base.bill.listener.CspdTaskHandler"></bean>
+<bean id="csshTaskHandler" class="com.hlic.base.bill.listener.CsshTaskHandler"></bean>
+<bean id="fspdTaskHandler" class="com.hlic.base.bill.listener.FspdTaskHandler"></bean>
+<bean id="fsshTaskHandler" class="com.hlic.base.bill.listener.FsshTaskHandler"></bean>
+</beans>

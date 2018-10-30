@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+.questionImg{
+    width: 37px;
+    height: 32px;
+    display: inline-block;
+    background-image: url(../img/question.png);
+    background-repeat: no-repeat;
+}

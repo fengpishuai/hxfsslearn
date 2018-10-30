@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.mapper.BaseCommonGridMapper" >
+	<resultMap id="StoreBaseResultMap" type="com.hlic.base.pojo.po.DofStoreCols" >
+	    <result column="COL_PK" property="colPk" jdbcType="VARCHAR" />
+	    <result column="STO_ID" property="stoId" jdbcType="VARCHAR" />
+	    <result column="COL_ID" property="colId" jdbcType="VARCHAR" />
+	    <result column="COL_CAPTION" property="colCaption" jdbcType="VARCHAR" />
+	    <result column="COL_DISP_ORDER" property="colDispOrder" jdbcType="INTEGER" />
+	    <result column="COL_FK_DCT" property="colFkDct" jdbcType="VARCHAR" />
+	    <result column="COL_TYPE" property="colType" jdbcType="VARCHAR" />
+	    <result column="COL_ELEMENT_TYPE_MODE" property="colElementTypeMode" jdbcType="VARCHAR" />
+	    <result column="COL_ELEMENT_TYPE" property="colElementType" jdbcType="VARCHAR" />
+	    <result column="COL_FK_ACCESS" property="colFkAccess" jdbcType="VARCHAR" />
+	    <result column="COL_SHOWMASK" property="colShowmask" jdbcType="VARCHAR" />
+	    <result column="COL_EDITMASK" property="colEditmask" jdbcType="VARCHAR" />
+	    <result column="COL_EDIT_STYLE" property="colEditStyle" jdbcType="VARCHAR" />
+	    <result column="COL_TITLE" property="colTitle" jdbcType="VARCHAR" />
+	    <result column="COL_USE" property="colUse" jdbcType="VARCHAR" />
+	    <result column="COL_INTER" property="colInter" jdbcType="VARCHAR" />
+	    <result column="COL_VISIBLE" property="colVisible" jdbcType="VARCHAR" />
+	    <result column="COL_DEFAULT" property="colDefault" jdbcType="VARCHAR" />
+	    <result column="COL_NULL" property="colNull" jdbcType="VARCHAR" />
+	    <result column="COL_SHOW_SIZE" property="colShowSize" jdbcType="INTEGER" />
+	    <result column="COL_CALC" property="colCalc" jdbcType="VARCHAR" />
+	    <result column="COL_EXP" property="colExp" jdbcType="VARCHAR" />
+	    <result column="COL_RCALC" property="colRcalc" jdbcType="VARCHAR" />
+	    <result column="COL_REXP" property="colRexp" jdbcType="VARCHAR" />
+	    <result column="COL_ENUM" property="colEnum" jdbcType="VARCHAR" />
+	    <result column="COL_ENUM_KEY" property="colEnumKey" jdbcType="VARCHAR" />
+	    <result column="COL_VT" property="colVt" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF" property="colVtRef" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF_COL" property="colVtRefCol" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF_ATTR" property="colVtRefAttr" jdbcType="VARCHAR" />
+	    <result column="COL_VALI" property="colVali" jdbcType="VARCHAR" />
+	    <result column="COL_VALI_EXP" property="colValiExp" jdbcType="VARCHAR" />
+	    <result column="COL_VALI_MSG" property="colValiMsg" jdbcType="VARCHAR" />
+	    <result column="COL_REG" property="colReg" jdbcType="VARCHAR" />
+	    <result column="COL_REG_EXP" property="colRegExp" jdbcType="VARCHAR" />
+	    <result column="COL_REG_MSG" property="colRegMsg" jdbcType="VARCHAR" />
+	    <result column="COL_EDITABLE" property="colEditable" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="DctBaseResultMap" type="com.hlic.base.pojo.po.DofDctCols" >
+	    <result column="COL_PK" property="colPk" jdbcType="VARCHAR" />
+	    <result column="COL_DISP_ORDER" property="colDispOrder" jdbcType="INTEGER" />
+	    <result column="COL_ID" property="colId" jdbcType="VARCHAR" />
+	    <result column="COL_FK_DCT" property="colFkDct" jdbcType="VARCHAR" />
+	    <result column="COL_APP_TYPE" property="colAppType" jdbcType="VARCHAR" />
+	    <result column="COL_FK_ACCESS" property="colFkAccess" jdbcType="VARCHAR" />
+	    <result column="DCT_ID" property="dctId" jdbcType="VARCHAR" />
+	    <result column="COL_FK" property="colFk" jdbcType="VARCHAR" />
+	    <result column="COL_SHOWMASK" property="colShowmask" jdbcType="VARCHAR" />
+	    <result column="COL_CAPTION" property="colCaption" jdbcType="VARCHAR" />
+	    <result column="COL_EDITMASK" property="colEditmask" jdbcType="VARCHAR" />
+	    <result column="COL_EDIT_STYLE" property="colEditStyle" jdbcType="VARCHAR" />
+	    <result column="COL_TITLE" property="colTitle" jdbcType="VARCHAR" />
+	    <result column="COL_USE" property="colUse" jdbcType="VARCHAR" />
+	    <result column="COL_INTER" property="colInter" jdbcType="VARCHAR" />
+	    <result column="COL_VISIBLE" property="colVisible" jdbcType="VARCHAR" />
+	    <result column="COL_DEFAULT" property="colDefault" jdbcType="VARCHAR" />
+	    <result column="COL_NULL" property="colNull" jdbcType="VARCHAR" />
+	    <result column="COL_SHOW_SIZE" property="colShowSize" jdbcType="REAL" />
+	    <result column="COL_CALC" property="colCalc" jdbcType="VARCHAR" />
+	    <result column="COL_EXP" property="colExp" jdbcType="VARCHAR" />
+	    <result column="COL_VT" property="colVt" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF" property="colVtRef" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF_COL" property="colVtRefCol" jdbcType="VARCHAR" />
+	    <result column="COL_VT_REF_ATTR" property="colVtRefAttr" jdbcType="VARCHAR" />
+	    <result column="COL_VALI" property="colVali" jdbcType="VARCHAR" />
+	    <result column="COL_VALI_EXP" property="colValiExp" jdbcType="VARCHAR" />
+	    <result column="COL_VALI_MSG" property="colValiMsg" jdbcType="VARCHAR" />
+	    <result column="COL_REG" property="colReg" jdbcType="VARCHAR" />
+	    <result column="COL_REG_EXP" property="colRegExp" jdbcType="VARCHAR" />
+	    <result column="COL_REG_MSG" property="colRegMsg" jdbcType="VARCHAR" />
+	    <result column="COL_EDITABLE" property="colEditable" jdbcType="VARCHAR" />
+	    <result column="COL_ELEMENT_TYPE_MODE" property="colElementTypeMode" jdbcType="VARCHAR" />
+	    <result column="COL_ELEMENT_TYPE" property="colElementType" jdbcType="VARCHAR" />
+	    <result column="COL_ENUM" property="colEnum" jdbcType="VARCHAR" />
+	    <result column="COL_ENUM_KEY" property="colEnumKey" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="queryDctColsList" resultMap="DctBaseResultMap" parameterType="java.lang.String">
+        SELECT * FROM dof_dct_cols where DCT_ID = #{dctId,jdbcType=VARCHAR} order by col_disp_order
+    </select>
+	
+	<select id="queryDofStoreColsParamList" resultType="java.util.Map" parameterType="java.lang.String">
+        SELECT a.*,b.F_MC AS COL_ENUM_KEY_FMC,c.F_MC AS COL_ELEMENT_TYPE_FMC,d.DCT_CAPTION AS COL_FK_DCT_FMC FROM dof_store_cols a LEFT JOIN dct_enum b ON b.F_BH=a.COL_ENUM_KEY LEFT JOIN dct_element c ON c.F_BH=a.COL_ELEMENT_TYPE LEFT JOIN DOF_DICTS d ON d.dct_id=a.COL_FK_DCT where a.STO_ID = #{stoId,jdbcType=VARCHAR} ORDER BY a.COL_DISP_ORDER ASC
+    </select>
+    
+    <select id="queryDofDctColsParamList" resultType="java.util.Map" parameterType="java.lang.String">
+        SELECT a.*,b.F_MC AS COL_ENUM_KEY_FMC,c.F_MC AS COL_ELEMENT_TYPE_FMC,d.DCT_CAPTION AS COL_FK_DCT_FMC FROM dof_dct_cols a LEFT JOIN dct_enum b ON b.F_BH=a.COL_ENUM_KEY LEFT JOIN dct_element c ON c.F_BH=a.COL_ELEMENT_TYPE LEFT JOIN DOF_DICTS d ON d.dct_id=a.COL_FK_DCT where a.DCT_ID = #{dctId,jdbcType=VARCHAR} ORDER BY a.COL_DISP_ORDER ASC
+    </select>
+    
+    <select id="queryCreateStoreColsList" resultType="java.util.Map" parameterType="java.lang.String">
+        SELECT a.COL_PK,a.COL_ID,a.COL_TITLE,'' AS COL_DATA_TYPE,a.COL_DEFAULT,a.COL_NULL,b.STO_KEY_FIELD FROM dof_store_cols a LEFT JOIN dof_stores b ON a.STO_ID=b.STO_ID WHERE a.sto_id = #{stoId,jdbcType=VARCHAR} ORDER BY a.COL_DISP_ORDER ASC
+    </select>
+    
+    <select id="queryCreateDctColsList" resultType="java.util.Map" parameterType="java.lang.String">
+        SELECT a.COL_PK,a.COL_ID,a.COL_CAPTION,'' AS COL_DATA_TYPE,a.COL_DEFAULT,a.COL_NULL,b.DCT_FID FROM dof_dct_cols a LEFT JOIN dof_dicts b ON a.DCT_ID=b.dct_id WHERE a.dct_id = #{dctId,jdbcType=VARCHAR} ORDER BY a.COL_DISP_ORDER ASC
+    </select>
+    
+    <select id="queryTableRows" resultType="java.util.Map" parameterType="java.lang.String" statementType="STATEMENT">
+	    select ${columns} from ${tableName} where ${tableFilter}
+	</select>
+   
+   	<select id="queryCommonGridPageList" resultType="java.util.Map" parameterType="java.lang.String">
+	    select ${columns} from ${tableName} where ${tableFilter}
+	</select>
+	
+	<select id="executeSql" resultType="java.util.Map">
+	    ${sql}
+	</select>
+	
+	<select id="queryCount" resultType="java.util.Map">
+	    ${sql}
+	</select>
+	
+	<update id="createTmpTable" parameterType="java.lang.String"> 
+	    ${updateSql}
+    </update>
+    
+    <delete id="deleteSql" parameterType="java.util.Map">
+        DELETE FROM ${table} WHERE ${fId} in 
+        <foreach item="item" index="index" collection="sqlList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    
+    <update id="dropTable" parameterType="java.lang.String">  
+        drop table ${tableName}     
+    </update>  
+    <insert id="insertTable" parameterType="hashmap">
+        INSERT INTO $(table) $(tabCols) VALUES
+        <foreach collection="gridMap" index="key" item="value" separator="," >
+            (
+              #{value.F_ID,jdbcType=VARCHAR},
+              #{value.F_NAME,jdbcType=VARCHAR},
+              #{value.F_DISABLE,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+</mapper>

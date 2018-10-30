@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    text-align: center;
+    font-family: '微软雅黑';
+}
+.content1 {
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+}
+.sub-content{
+    display: inline-block;
+    height: 40px;
+    width: 300px;
+}
+.sub-title{
+    display: inline-block;
+    font-size: 14px;
+}
+.Input {
+    height: 28px;
+    border-radius: 2px;
+    border: 1px solid #9CA09F;
+    padding-left: 6px;
+}

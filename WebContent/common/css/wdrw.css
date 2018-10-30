@@ -1,0 +1,567 @@
+body{
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    min-width:1066px;
+}
+#header{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:50px;
+}
+#wddj_filter,#wddb_filter,#wdyb_filter{
+    position:absolute;
+    top:50px;
+    left:0;
+    right:0;
+    height:36px;
+    background:#F0F5FB;
+    border-bottom:1px solid #C1D4E3;
+    font-size:14px;
+    line-height: 36px;
+    padding-left: 12px;
+    z-index:2;
+}
+#wddj_content{
+    position:absolute;
+    top:87px;
+    padding-top:3px;
+    left:0;
+    right:0;
+    bottom:44px;
+    min-width:980px;
+    overflow:auto;
+}
+#paddingDiv{
+    height:12px;
+}
+#wddj_pager{
+    position:absolute;
+    bottom:12px;
+    left:0;
+    right:0;
+    height:32px;
+    background:#F0F5FB;
+    border-bottom: 1px solid #C1D4E3;
+}
+.ui-icon{
+    cursor:pointer;
+}
+.ui-pg-table .ui-pg-input-gai {
+    border-top: solid 1px #abadb3;
+    border-left: solid 1px #e2e3ea;
+    border-bottom: solid 1px #e2e3ea;
+    border-right: solid 1px #e2e3ea;
+    padding: 0px;
+    position:relative;
+    top:1px;
+}
+#navigation{
+    border: 1px solid #4186c1;
+    border-radius: 4px;
+    height: 28px;
+    left: 12px;
+    position: absolute;
+    top: 12px;
+}
+#navigation>span{
+    color:#015299;
+    font-size:14px;
+    line-height:28px;
+    display:inline-block;
+    width:100px;
+    margin:0;
+    padding:0;
+    text-align:center;
+    border-right:1px solid #4186c1;
+    cursor: pointer;
+    float:left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#navigation>span:last-child{
+    border-right:0;
+}
+#navigation>span.active, #navigation>span:hover{
+    color:white;
+    background:#4186c1;
+}
+#commontools {
+    height: 28px;
+    position: absolute;
+    right: 24px;
+    top: 15px;
+    width: 212px;
+}
+#changePeriod{
+    left: 29px;
+    position: absolute;
+}
+#refreshcomBtn{
+    color: #3876AE;
+    cursor: pointer;
+    font-size: 13px;
+    height: 100%;
+    left: 158px;
+    position: absolute;
+    width: 53px;
+    line-height: 30px;
+    padding-left: 24px;
+}
+#refreshcomBtn>span{
+    background-image: url("../../../../main/welcome/image/shuaxin.png");
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 7px;
+    width: 16px;
+}
+#wddj_ul{
+    padding:0;
+}
+.item{
+    border:1px solid #C1D4E3;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 74px;
+    color: #8a8a8a;
+    font-size: 14px;
+    position: relative;
+    background: white;
+    list-style: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color:#015299;
+}
+.item_xh{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:58px;
+    background:#D7EAF0;
+    text-align: center;
+    line-height: 74px;
+    font-size: 32px;
+    font-style: italic;
+    border-radius: 6px 0 0 6px;
+    color: rgb(95, 157, 211);
+}
+.item_content{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:59px;
+    background:#F4F8FB;
+    border-radius:0 6px 6px 0;
+}
+.item_fengexian{
+    position:absolute;
+    top:36px;
+    left:-1px;
+    right:0;
+    border-top:1px solid #D7EAF0;
+    border-bottom:1px solid white;
+}
+.item_djlx{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    height: 28px;
+    line-height: 35px;
+    max-width: 390px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor:pointer;
+}
+.item_djlx:hover{
+    border-bottom: 1px solid rgb(137, 185, 228);
+}
+.item_djzt{
+    position: absolute;
+    top: 0;
+    left: 400px;
+    height: 35px;
+    line-height: 35px;
+    font-weight:bold;
+    width:120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item_djje{
+    position: absolute;
+    top: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 540px;
+    font-weight: bold;
+    color: #dd0000;
+    width:180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item_tbrq{
+    position: absolute;
+    top: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 740px;
+    font-weight: bold;
+}
+.item_tbr{
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+.item_sqr{
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    left: 200px;
+}
+.item_sy{
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 400px;
+    right: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color:#6f6f6f;
+}
+span.nameSapn{
+    color:#6f6f6f;
+    font-weight:normal;
+}
+.item_djlx>span{
+    font-weight:bold;
+}
+.rwtime {
+    background-image: url("../../../../main/welcome/image/date.png");
+    background-position: 123px center;
+    background-repeat: no-repeat;
+    border: 1px solid #CDCDCD;
+    height: 24px;
+    width: 140px;
+    position:relative;
+    top:2px;
+    padding-left:6px;
+}
+#wddj_filter>div{
+    display:inline-block;	
+}
+#s2id_dbdjlxselect{
+    margin-right:20px;
+}
+#dbsearch,#djbhFilterBtn{
+    width: 50px;
+    height: 26px;
+    background: #0085BD;
+    position: relative;
+    top: 1px;
+    color: white;
+    line-height: 26px;
+    text-align: right;
+    padding-right: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    display: inline-block;
+}
+#djbhFilterBtn{
+    position: relative;
+    top:-2px;
+}
+#dbsearch>span,#djbhFilterBtn>span{
+    background-image: url("../../../../main/welcome/image/search.png");
+    height: 16px;
+    left: 3px;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+}
+#djbhFilter4wddb{
+    width: 350px;
+    position: absolute;
+    right: 0;
+    top: 15px;	
+    font-size:14px;
+    display:none;
+}
+#djbhFilterInp{
+    border: 1px solid #CDCDCD;
+    height: 26px;
+    width: 190px;
+    line-height:26px;
+    font-size:13px;
+}
+#reset{
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding-right: 8px;
+    color: rgb(1, 82, 153);
+    position: relative;
+    top: 2px;
+}
+#reset{
+    cursor: pointer;
+}
+.item_xh.liangweishu{
+    font-size:26px;
+}
+.item_xh.sanweishu{
+    font-size:22px;
+}
+.item_xh.siweishu{
+    font-size:18px;
+}
+#grid9_pager_right .ui-paging-info{
+    padding-right:24px;
+}
+/*---------------�ҵĴ�쿪ʼ---------------*/
+#wddb_content,#wddb_pager,#wddb_filter{
+    display:none;
+}
+#wddb_content{
+    position:absolute;
+    top:90px;
+    left:0;
+    right:0;
+    bottom:44px;
+    min-width:1000px;
+    overflow:auto;
+}
+#wddb_pager{
+    position:absolute;
+    bottom:12px;
+    left:0;
+    right:0;
+    height:32px;
+    background:#F0F5FB;
+    border-bottom: 1px solid #C1D4E3;
+}
+ #wddb_filter{
+    overflow:hidden;
+    z-index:2;
+ }
+.wddb_djlx_group{
+    float:left;
+    width:210px;
+    height: 36px;
+    line-height: 24px;
+    cursor: pointer;
+}
+.wddb_djlx_group.active{
+    color:rgb(230, 32, 32);
+}
+.wddb_djlx_group_dian{
+    display:inline-block;
+    width:4px;
+    height:4px;
+    background:#93BEE0;
+    position: relative;
+    top: -3px;
+}
+.wddb_djlx_group_name{
+    display: inline-block;
+    margin-right: 4px;
+    max-width: 155px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    top: 7px;
+    white-space: nowrap;
+    margin-left: 6px;
+}
+.wddb_djlx_group_count{
+    color:rgb(230, 32, 32);
+}
+#wddb_zkgd{
+    background: none repeat scroll 0 0 #F0F5FB;
+    color: #3876AE;
+    cursor: pointer;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 62px;
+    z-index: 2;
+    top: 86px;
+    font-size: 12px;
+    border-left: 1px solid #C1D4E3;
+    border-bottom: 1px solid #C1D4E3;
+    line-height:0;
+}
+/*---------------�ҵ��Ѱ쿪ʼ---------------*/
+#wdyb_content,#wdyb_pager,#wdyb_filter{
+    display:none;
+}
+#wdyb_content{
+    position:absolute;
+    top:90px;
+    left:0;
+    right:0;
+    bottom:44px;
+    min-width:1000px;
+    overflow:auto;
+}
+#wdyb_pager{
+    position:absolute;
+    bottom:12px;
+    left:0;
+    right:0;
+    height:32px;
+    background:#F0F5FB;
+    border-bottom: 1px solid #C1D4E3;
+}
+ #wdyb_filter{
+    overflow:hidden;
+    z-index:2;
+ }
+#wdyb_filter>div{
+    display:inline-block;   
+}
+#s2id_wdyb_djlxselect{
+    margin-right:20px;
+}
+#wdyb_search{
+    width: 50px;
+    height: 26px;
+    background: #0085BD;
+    position: relative;
+    top: 1px;
+    color: white;
+    line-height: 26px;
+    text-align: right;
+    padding-right: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+#wdyb_search>span{
+    background-image: url("../../../../main/welcome/image/search.png");
+    height: 16px;
+    left: 3px;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+}
+.ui-pg-input-gai{
+    height:17px;
+    font-size:13px;	
+}
+.ui-pg-selbox{
+    font-size: 13px;
+    height: 20px;
+    line-height: 18px
+}
+.ui-pg-table{
+    font-size:13px;
+}
+
+.check_box {
+    background-image: url("../image/checkbox.png");
+    cursor: pointer;
+    height: 14px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 14px;
+    z-index: 1;
+}
+#wddbtools {
+    display: none;
+    font-size: 14px;
+    height: 32px;
+    position: absolute;
+    right: 347px;
+    top: 12px;
+    width: 218px;
+}
+.t_c {
+    position: relative;
+    top: 7px;
+    width: 82px;
+}
+#wddbtools div {
+    float: left;
+}
+
+.t_checkbox {
+    background-image: url("../image/checkbox.png");
+    cursor: pointer;
+    display: inline-block;
+    height: 14px;
+    left: -6px;
+    position: relative;
+    top: 1px;
+    width: 14px;
+}
+.t_btns {
+    background: #0085BD;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 26px;
+    left: 0;
+    line-height: 26px;
+    margin-right: 7px;
+    position: relative;
+    text-align: center;
+    top: 4px;
+    width: 58px;
+}
+.tcheckallselect{
+	background-image: url("../image/checkAll.png");
+	height: 16px;
+	width: 17px;
+}
+
+#approvebtn > span {
+    background-image: url("../image/approve.png");
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+}
+#refusebtn > span {
+    background-image: url("../image/refuse.png");
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+}
+.t_btns > p {
+    position: absolute;
+    right: 7px;
+    top: 0;
+}
+
+.djbhspan {
+    margin-left: 17px;
+}
+
+.djztspan {
+    margin-left: 17px;
+}

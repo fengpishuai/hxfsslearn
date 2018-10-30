@@ -1,0 +1,241 @@
+@CHARSET "UTF-8";
+.container{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    min-width:960px;
+}
+.con-content{
+    position: absolute;
+    top:47px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+#navigation{
+    border: 1px solid #4186c1;
+    border-radius: 4px;
+    height: 28px;
+    left: 12px;
+    position: absolute;
+    top: 6px;
+}
+#navigation>span{
+    color:#015299;
+    font-size:14px;
+    line-height:28px;
+    display:inline-block;
+    width:100px;
+    margin:0;
+    padding:0;
+    text-align:center;
+    border-right:1px solid #039394;
+    cursor: pointer;
+    float:left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#navigation>span:last-child{
+    border-right:0;
+}
+#navigation>span.active, #navigation>span:hover{
+    color:white;
+    background:#039393;
+}
+.wddj{
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+}
+.wddj-search{
+    position: absolute;
+    right: 12px;
+    top: -41px;
+    height: 28px;
+    width: 178px;
+}
+.changePeriod{
+    float:left;
+}
+.refreshcomBtn>p{
+    margin:0px;
+    color:#015299;
+    font-size: 14px;
+}
+.change-select{
+    float: right;
+}
+.select-style{
+    height: 27px;
+    width: 80px;
+    border-color: #e6e6e6;
+}
+.wddj-selected-mid{
+    height: 27px;
+    width: 160px;
+    border-color: #e6e6e6;
+}
+.wddj-selected-small{
+    height: 27px;
+    width: 100px;
+    border-color: #e6e6e6;
+}
+.wddj-input-mid{
+    height: 23px;
+    width: 110px;
+    border-color: #e6e6e6;
+    outline: none;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.select-style:focus{
+}
+.wddj-searcha {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background: #F0F5FB;
+    border-bottom: 1px solid #C1D4E3;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.wddj-content {
+    position: absolute;
+    top: 41px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+}
+.wddj-pager {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background: #F0F5FB;
+    border-bottom: 1px solid #C1D4E3;
+}
+.wddj-lab{
+    font-size:14px;
+}
+.wddj-btn-small{
+    border: 0px;
+    background-color: #039393;
+    line-height: 23px;
+    width: 49px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+}
+.wddj-btn-small:focus{
+    background-color:#5794C7;
+}
+.wddj-ul-list {
+    padding: 0px;
+    margin: 0px;
+}
+.item {
+    border: 1px solid #C1D4E3;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 74px;
+    color: #8a8a8a;
+    font-size: 14px;
+    position: relative;
+    background: white;
+    list-style: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #015299;
+}
+.item_xh {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 58px;
+    background: #D7EAF0;
+    text-align: center;
+    line-height: 74px;
+    font-size: 32px;
+    font-style: italic;
+    border-radius: 6px 0 0 6px;
+    color: rgb(95, 157, 211);
+}
+.item_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 59px;
+    background: #F4F8FB;
+    border-radius: 0 6px 6px 0;
+}
+.item_djlx {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    height: 28px;
+    line-height: 35px;
+    max-width: 390px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.item_djzt {
+    position: absolute;
+    top: 0;
+    left: 400px;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item_djje {
+    position: absolute;
+    top: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 540px;
+    font-weight: bold;
+    color: #dd0000;
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item_tbrq {
+    position: absolute;
+    top: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 740px;
+    font-weight: bold;
+}
+.item_tbr {
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+.ui-pg-input-gai{
+    width:30px;
+}
+.ui-pg-selbox{
+}
