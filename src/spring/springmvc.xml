@@ -22,7 +22,6 @@
     <!-- mybatis处理器映射器和适配器，可以使用mvc注解驱动 -->
     <mvc:annotation-driven/>
 
-
 	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 将jstl的jar包加入工程，默认支持jstl -->
