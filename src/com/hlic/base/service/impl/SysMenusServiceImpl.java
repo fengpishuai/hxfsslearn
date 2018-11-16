@@ -21,6 +21,7 @@ import com.hlic.base.pojo.po.SysMenusExample;
 import com.hlic.base.pojo.po.SysRoles;
 import com.hlic.base.pojo.po.EmployeeExample.Criteria;
 import com.hlic.base.service.SysMenusService;
+import com.hlic.utils.RedisUtil;
 import com.hlic.utils.paginator.domain.PageList;
 
 public class SysMenusServiceImpl extends BaseServiceImpl implements SysMenusService {
@@ -29,7 +30,18 @@ public class SysMenusServiceImpl extends BaseServiceImpl implements SysMenusServ
 	@Autowired
 	private SysMenusMapper sysMenusMapper;
 	
+	@Autowired
+	private RedisUtil redisUtil;
+	
 	public List<SysMenus> querymenusList() throws Exception{
+		SysMenus sysMenus = null;
+		if(redisUtil.exists("1001")){
+			/*sysMenus = (SysMenus) redisUtil.get("1001");
+			System.out.println(sysMenus);*/
+		}else{
+			sysMenus = sysMenusMapper.selectByPrimaryKey("1001");
+			//redisUtil.set("1001", sysMenus); 
+		}
 		return sysMenusMapper.querymenusList();
 	}
 	

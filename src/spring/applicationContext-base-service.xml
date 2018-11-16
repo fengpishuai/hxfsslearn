@@ -26,10 +26,12 @@
 <bean id="sysRolesService" class="com.hlic.base.service.impl.SysRolesServiceImpl"/>
 <bean id="sysFuncGrpService" class="com.hlic.base.service.impl.SysFuncGrpServiceImpl"/>
 <bean id="sysUserRoleOrgService" class="com.hlic.base.service.impl.SysUserRoleOrgServiceImpl"/>
+<bean id="fileUploadAndDownService" class="com.hlic.base.service.impl.FileUploadAndDownServiceImpl"></bean>
 <!-- 流程监听 -->
 <bean id="managerTaskHandler" class="com.hlic.base.bill.listener.ManagerTaskHandler"></bean> 
 <bean id="cspdTaskHandler" class="com.hlic.base.bill.listener.CspdTaskHandler"></bean>
 <bean id="csshTaskHandler" class="com.hlic.base.bill.listener.CsshTaskHandler"></bean>
 <bean id="fspdTaskHandler" class="com.hlic.base.bill.listener.FspdTaskHandler"></bean>
 <bean id="fsshTaskHandler" class="com.hlic.base.bill.listener.FsshTaskHandler"></bean>
+
 </beans>

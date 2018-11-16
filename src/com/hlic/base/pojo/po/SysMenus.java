@@ -1,8 +1,9 @@
 package com.hlic.base.pojo.po;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SysMenus {
+public class SysMenus  implements Serializable {
     private String fMenuId;
 
     private String fMenuName;
@@ -26,7 +27,9 @@ public class SysMenus {
     private String fT2;
     
     private List<SysFunc> sysFuns;
-
+    
+    private static final long serialVersionUID = 1L;
+    
     public String getfMenuId() {
         return fMenuId;
     }

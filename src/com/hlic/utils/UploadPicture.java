@@ -14,15 +14,12 @@ public class UploadPicture {
     private Long width;
     private Long height;
     
-    
 	public UploadPicture(String filetype,Long maxSize,Long width,Long height){
 		this.filetype=filetype;
 		this.maxSize=maxSize;
 		this.width=width;
 		this.height=height;
 	}
-	
-	
 	
 	public  String check(File upload,String uploadFileName,String uploadContentType) {
 	      String message="";

@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.mapper.ScAttachMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.ScAttach" >
+    <result column="F_PKEY" property="fPkey" jdbcType="VARCHAR" />
+    <result column="F_POOL_ID" property="fPoolId" jdbcType="VARCHAR" />
+    <result column="F_BILL_YEAR" property="fBillYear" jdbcType="VARCHAR" />
+    <result column="F_BILL_MONTH" property="fBillMonth" jdbcType="VARCHAR" />
+    <result column="F_BILL_ID" property="fBillId" jdbcType="VARCHAR" />
+    <result column="F_ATT_TYPE" property="fAttType" jdbcType="VARCHAR" />
+    <result column="F_ATT_STO_KEY" property="fAttStoKey" jdbcType="VARCHAR" />
+    <result column="F_ATT_TITLE" property="fAttTitle" jdbcType="VARCHAR" />
+    <result column="F_ATT_SIZE" property="fAttSize" jdbcType="INTEGER" />
+    <result column="F_UP_TIME" property="fUpTime" jdbcType="VARCHAR" />
+    <result column="F_BIZ_INFO" property="fBizInfo" jdbcType="VARCHAR" />
+    <result column="F_AMT" property="fAmt" jdbcType="DECIMAL" />
+    <result column="F_STA_UP" property="fStaUp" jdbcType="VARCHAR" />
+    <result column="F_STA_MDY" property="fStaMdy" jdbcType="VARCHAR" />
+    <result column="F_STA_SCAN" property="fStaScan" jdbcType="VARCHAR" />
+    <result column="F_STA_VERY" property="fStaVery" jdbcType="VARCHAR" />
+    <result column="F_STA_SEAL" property="fStaSeal" jdbcType="VARCHAR" />
+    <result column="F_STA0" property="fSta0" jdbcType="VARCHAR" />
+    <result column="F_STA1" property="fSta1" jdbcType="VARCHAR" />
+    <result column="F_STA2" property="fSta2" jdbcType="VARCHAR" />
+    <result column="F_STA3" property="fSta3" jdbcType="DECIMAL" />
+    <result column="F_STA4" property="fSta4" jdbcType="VARCHAR" />
+    <result column="F_STA5" property="fSta5" jdbcType="VARCHAR" />
+    <result column="F_BIZ_TYPE" property="fBizType" jdbcType="VARCHAR" />
+    <result column="F_BILL_TYPE" property="fBillType" jdbcType="VARCHAR" />
+    <result column="F_STA_ENCRY" property="fStaEncry" jdbcType="VARCHAR" />
+    <result column="F_STA_CMPRS" property="fStaCmprs" jdbcType="VARCHAR" />
+    <result column="F_STA_VIRUS" property="fStaVirus" jdbcType="VARCHAR" />
+    <result column="F_FILE_TP" property="fFileTp" jdbcType="VARCHAR" />
+    <result column="F_DSP_IDX" property="fDspIdx" jdbcType="INTEGER" />
+    <result column="F_VERY_INFO" property="fVeryInfo" jdbcType="VARCHAR" />
+    <result column="F_ATT_SRC_STO_KEY" property="fAttSrcStoKey" jdbcType="VARCHAR" />
+    <result column="F_APP_ID" property="fAppId" jdbcType="VARCHAR" />
+    <result column="F_USER_ID" property="fUserId" jdbcType="VARCHAR" />
+    <result column="F_USER_NAME" property="fUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_PKEY, F_POOL_ID, F_BILL_YEAR, F_BILL_MONTH, F_BILL_ID, F_ATT_TYPE, F_ATT_STO_KEY, 
+    F_ATT_TITLE, F_ATT_SIZE, F_UP_TIME, F_BIZ_INFO, F_AMT, F_STA_UP, F_STA_MDY, F_STA_SCAN, 
+    F_STA_VERY, F_STA_SEAL, F_STA0, F_STA1, F_STA2, F_STA3, F_STA4, F_STA5, F_BIZ_TYPE, 
+    F_BILL_TYPE, F_STA_ENCRY, F_STA_CMPRS, F_STA_VIRUS, F_FILE_TP, F_DSP_IDX, F_VERY_INFO, 
+    F_ATT_SRC_STO_KEY, F_APP_ID, F_USER_ID, F_USER_NAME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.ScAttachExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sc_attach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.ScAttachExample" >
+    delete from sc_attach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.ScAttach" >
+    insert into sc_attach (F_PKEY, F_POOL_ID, F_BILL_YEAR, 
+      F_BILL_MONTH, F_BILL_ID, F_ATT_TYPE, 
+      F_ATT_STO_KEY, F_ATT_TITLE, F_ATT_SIZE, 
+      F_UP_TIME, F_BIZ_INFO, F_AMT, 
+      F_STA_UP, F_STA_MDY, F_STA_SCAN, 
+      F_STA_VERY, F_STA_SEAL, F_STA0, 
+      F_STA1, F_STA2, F_STA3, 
+      F_STA4, F_STA5, F_BIZ_TYPE, 
+      F_BILL_TYPE, F_STA_ENCRY, F_STA_CMPRS, 
+      F_STA_VIRUS, F_FILE_TP, F_DSP_IDX, 
+      F_VERY_INFO, F_ATT_SRC_STO_KEY, F_APP_ID, 
+      F_USER_ID, F_USER_NAME)
+    values (#{fPkey,jdbcType=VARCHAR}, #{fPoolId,jdbcType=VARCHAR}, #{fBillYear,jdbcType=VARCHAR}, 
+      #{fBillMonth,jdbcType=VARCHAR}, #{fBillId,jdbcType=VARCHAR}, #{fAttType,jdbcType=VARCHAR}, 
+      #{fAttStoKey,jdbcType=VARCHAR}, #{fAttTitle,jdbcType=VARCHAR}, #{fAttSize,jdbcType=INTEGER}, 
+      #{fUpTime,jdbcType=VARCHAR}, #{fBizInfo,jdbcType=VARCHAR}, #{fAmt,jdbcType=DECIMAL}, 
+      #{fStaUp,jdbcType=VARCHAR}, #{fStaMdy,jdbcType=VARCHAR}, #{fStaScan,jdbcType=VARCHAR}, 
+      #{fStaVery,jdbcType=VARCHAR}, #{fStaSeal,jdbcType=VARCHAR}, #{fSta0,jdbcType=VARCHAR}, 
+      #{fSta1,jdbcType=VARCHAR}, #{fSta2,jdbcType=VARCHAR}, #{fSta3,jdbcType=DECIMAL}, 
+      #{fSta4,jdbcType=VARCHAR}, #{fSta5,jdbcType=VARCHAR}, #{fBizType,jdbcType=VARCHAR}, 
+      #{fBillType,jdbcType=VARCHAR}, #{fStaEncry,jdbcType=VARCHAR}, #{fStaCmprs,jdbcType=VARCHAR}, 
+      #{fStaVirus,jdbcType=VARCHAR}, #{fFileTp,jdbcType=VARCHAR}, #{fDspIdx,jdbcType=INTEGER}, 
+      #{fVeryInfo,jdbcType=VARCHAR}, #{fAttSrcStoKey,jdbcType=VARCHAR}, #{fAppId,jdbcType=VARCHAR}, 
+      #{fUserId,jdbcType=VARCHAR}, #{fUserName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.ScAttach" >
+    insert into sc_attach
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        F_PKEY,
+      </if>
+      <if test="fPoolId != null" >
+        F_POOL_ID,
+      </if>
+      <if test="fBillYear != null" >
+        F_BILL_YEAR,
+      </if>
+      <if test="fBillMonth != null" >
+        F_BILL_MONTH,
+      </if>
+      <if test="fBillId != null" >
+        F_BILL_ID,
+      </if>
+      <if test="fAttType != null" >
+        F_ATT_TYPE,
+      </if>
+      <if test="fAttStoKey != null" >
+        F_ATT_STO_KEY,
+      </if>
+      <if test="fAttTitle != null" >
+        F_ATT_TITLE,
+      </if>
+      <if test="fAttSize != null" >
+        F_ATT_SIZE,
+      </if>
+      <if test="fUpTime != null" >
+        F_UP_TIME,
+      </if>
+      <if test="fBizInfo != null" >
+        F_BIZ_INFO,
+      </if>
+      <if test="fAmt != null" >
+        F_AMT,
+      </if>
+      <if test="fStaUp != null" >
+        F_STA_UP,
+      </if>
+      <if test="fStaMdy != null" >
+        F_STA_MDY,
+      </if>
+      <if test="fStaScan != null" >
+        F_STA_SCAN,
+      </if>
+      <if test="fStaVery != null" >
+        F_STA_VERY,
+      </if>
+      <if test="fStaSeal != null" >
+        F_STA_SEAL,
+      </if>
+      <if test="fSta0 != null" >
+        F_STA0,
+      </if>
+      <if test="fSta1 != null" >
+        F_STA1,
+      </if>
+      <if test="fSta2 != null" >
+        F_STA2,
+      </if>
+      <if test="fSta3 != null" >
+        F_STA3,
+      </if>
+      <if test="fSta4 != null" >
+        F_STA4,
+      </if>
+      <if test="fSta5 != null" >
+        F_STA5,
+      </if>
+      <if test="fBizType != null" >
+        F_BIZ_TYPE,
+      </if>
+      <if test="fBillType != null" >
+        F_BILL_TYPE,
+      </if>
+      <if test="fStaEncry != null" >
+        F_STA_ENCRY,
+      </if>
+      <if test="fStaCmprs != null" >
+        F_STA_CMPRS,
+      </if>
+      <if test="fStaVirus != null" >
+        F_STA_VIRUS,
+      </if>
+      <if test="fFileTp != null" >
+        F_FILE_TP,
+      </if>
+      <if test="fDspIdx != null" >
+        F_DSP_IDX,
+      </if>
+      <if test="fVeryInfo != null" >
+        F_VERY_INFO,
+      </if>
+      <if test="fAttSrcStoKey != null" >
+        F_ATT_SRC_STO_KEY,
+      </if>
+      <if test="fAppId != null" >
+        F_APP_ID,
+      </if>
+      <if test="fUserId != null" >
+        F_USER_ID,
+      </if>
+      <if test="fUserName != null" >
+        F_USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        #{fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fPoolId != null" >
+        #{fPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillYear != null" >
+        #{fBillYear,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillMonth != null" >
+        #{fBillMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillId != null" >
+        #{fBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttType != null" >
+        #{fAttType,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttStoKey != null" >
+        #{fAttStoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttTitle != null" >
+        #{fAttTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttSize != null" >
+        #{fAttSize,jdbcType=INTEGER},
+      </if>
+      <if test="fUpTime != null" >
+        #{fUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fBizInfo != null" >
+        #{fBizInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fAmt != null" >
+        #{fAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fStaUp != null" >
+        #{fStaUp,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaMdy != null" >
+        #{fStaMdy,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaScan != null" >
+        #{fStaScan,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaVery != null" >
+        #{fStaVery,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaSeal != null" >
+        #{fStaSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="fSta0 != null" >
+        #{fSta0,jdbcType=VARCHAR},
+      </if>
+      <if test="fSta1 != null" >
+        #{fSta1,jdbcType=VARCHAR},
+      </if>
+      <if test="fSta2 != null" >
+        #{fSta2,jdbcType=VARCHAR},
+      </if>
+      <if test="fSta3 != null" >
+        #{fSta3,jdbcType=DECIMAL},
+      </if>
+      <if test="fSta4 != null" >
+        #{fSta4,jdbcType=VARCHAR},
+      </if>
+      <if test="fSta5 != null" >
+        #{fSta5,jdbcType=VARCHAR},
+      </if>
+      <if test="fBizType != null" >
+        #{fBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillType != null" >
+        #{fBillType,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaEncry != null" >
+        #{fStaEncry,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaCmprs != null" >
+        #{fStaCmprs,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaVirus != null" >
+        #{fStaVirus,jdbcType=VARCHAR},
+      </if>
+      <if test="fFileTp != null" >
+        #{fFileTp,jdbcType=VARCHAR},
+      </if>
+      <if test="fDspIdx != null" >
+        #{fDspIdx,jdbcType=INTEGER},
+      </if>
+      <if test="fVeryInfo != null" >
+        #{fVeryInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttSrcStoKey != null" >
+        #{fAttSrcStoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fAppId != null" >
+        #{fAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="fUserId != null" >
+        #{fUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fUserName != null" >
+        #{fUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.ScAttachExample" resultType="java.lang.Integer" >
+    select count(*) from sc_attach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sc_attach
+    <set >
+      <if test="record.fPkey != null" >
+        F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fPoolId != null" >
+        F_POOL_ID = #{record.fPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillYear != null" >
+        F_BILL_YEAR = #{record.fBillYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillMonth != null" >
+        F_BILL_MONTH = #{record.fBillMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillId != null" >
+        F_BILL_ID = #{record.fBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttType != null" >
+        F_ATT_TYPE = #{record.fAttType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttStoKey != null" >
+        F_ATT_STO_KEY = #{record.fAttStoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttTitle != null" >
+        F_ATT_TITLE = #{record.fAttTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttSize != null" >
+        F_ATT_SIZE = #{record.fAttSize,jdbcType=INTEGER},
+      </if>
+      <if test="record.fUpTime != null" >
+        F_UP_TIME = #{record.fUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBizInfo != null" >
+        F_BIZ_INFO = #{record.fBizInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAmt != null" >
+        F_AMT = #{record.fAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fStaUp != null" >
+        F_STA_UP = #{record.fStaUp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaMdy != null" >
+        F_STA_MDY = #{record.fStaMdy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaScan != null" >
+        F_STA_SCAN = #{record.fStaScan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaVery != null" >
+        F_STA_VERY = #{record.fStaVery,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaSeal != null" >
+        F_STA_SEAL = #{record.fStaSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSta0 != null" >
+        F_STA0 = #{record.fSta0,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSta1 != null" >
+        F_STA1 = #{record.fSta1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSta2 != null" >
+        F_STA2 = #{record.fSta2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSta3 != null" >
+        F_STA3 = #{record.fSta3,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fSta4 != null" >
+        F_STA4 = #{record.fSta4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSta5 != null" >
+        F_STA5 = #{record.fSta5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBizType != null" >
+        F_BIZ_TYPE = #{record.fBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillType != null" >
+        F_BILL_TYPE = #{record.fBillType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaEncry != null" >
+        F_STA_ENCRY = #{record.fStaEncry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaCmprs != null" >
+        F_STA_CMPRS = #{record.fStaCmprs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaVirus != null" >
+        F_STA_VIRUS = #{record.fStaVirus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFileTp != null" >
+        F_FILE_TP = #{record.fFileTp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDspIdx != null" >
+        F_DSP_IDX = #{record.fDspIdx,jdbcType=INTEGER},
+      </if>
+      <if test="record.fVeryInfo != null" >
+        F_VERY_INFO = #{record.fVeryInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttSrcStoKey != null" >
+        F_ATT_SRC_STO_KEY = #{record.fAttSrcStoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAppId != null" >
+        F_APP_ID = #{record.fAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUserId != null" >
+        F_USER_ID = #{record.fUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUserName != null" >
+        F_USER_NAME = #{record.fUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sc_attach
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_POOL_ID = #{record.fPoolId,jdbcType=VARCHAR},
+      F_BILL_YEAR = #{record.fBillYear,jdbcType=VARCHAR},
+      F_BILL_MONTH = #{record.fBillMonth,jdbcType=VARCHAR},
+      F_BILL_ID = #{record.fBillId,jdbcType=VARCHAR},
+      F_ATT_TYPE = #{record.fAttType,jdbcType=VARCHAR},
+      F_ATT_STO_KEY = #{record.fAttStoKey,jdbcType=VARCHAR},
+      F_ATT_TITLE = #{record.fAttTitle,jdbcType=VARCHAR},
+      F_ATT_SIZE = #{record.fAttSize,jdbcType=INTEGER},
+      F_UP_TIME = #{record.fUpTime,jdbcType=VARCHAR},
+      F_BIZ_INFO = #{record.fBizInfo,jdbcType=VARCHAR},
+      F_AMT = #{record.fAmt,jdbcType=DECIMAL},
+      F_STA_UP = #{record.fStaUp,jdbcType=VARCHAR},
+      F_STA_MDY = #{record.fStaMdy,jdbcType=VARCHAR},
+      F_STA_SCAN = #{record.fStaScan,jdbcType=VARCHAR},
+      F_STA_VERY = #{record.fStaVery,jdbcType=VARCHAR},
+      F_STA_SEAL = #{record.fStaSeal,jdbcType=VARCHAR},
+      F_STA0 = #{record.fSta0,jdbcType=VARCHAR},
+      F_STA1 = #{record.fSta1,jdbcType=VARCHAR},
+      F_STA2 = #{record.fSta2,jdbcType=VARCHAR},
+      F_STA3 = #{record.fSta3,jdbcType=DECIMAL},
+      F_STA4 = #{record.fSta4,jdbcType=VARCHAR},
+      F_STA5 = #{record.fSta5,jdbcType=VARCHAR},
+      F_BIZ_TYPE = #{record.fBizType,jdbcType=VARCHAR},
+      F_BILL_TYPE = #{record.fBillType,jdbcType=VARCHAR},
+      F_STA_ENCRY = #{record.fStaEncry,jdbcType=VARCHAR},
+      F_STA_CMPRS = #{record.fStaCmprs,jdbcType=VARCHAR},
+      F_STA_VIRUS = #{record.fStaVirus,jdbcType=VARCHAR},
+      F_FILE_TP = #{record.fFileTp,jdbcType=VARCHAR},
+      F_DSP_IDX = #{record.fDspIdx,jdbcType=INTEGER},
+      F_VERY_INFO = #{record.fVeryInfo,jdbcType=VARCHAR},
+      F_ATT_SRC_STO_KEY = #{record.fAttSrcStoKey,jdbcType=VARCHAR},
+      F_APP_ID = #{record.fAppId,jdbcType=VARCHAR},
+      F_USER_ID = #{record.fUserId,jdbcType=VARCHAR},
+      F_USER_NAME = #{record.fUserName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

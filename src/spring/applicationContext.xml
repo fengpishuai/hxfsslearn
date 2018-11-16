@@ -17,15 +17,15 @@
         http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
 
 <!-- 加载配置文件 -->
-<context:property-placeholder location="classpath:db.properties"/>
+<context:property-placeholder location="classpath:db.properties,classpath:redis.properties"/>
 
 <!-- 数据库连接池 -->
-<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
+<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" >
     <!-- 基本属性 url、user、password -->
-	<property name="url" value="${jdbc.url}" />
-	<property name="username" value="${jdbc.username}" />
-	<property name="password" value="${jdbc.password}" />
-	<property name="driverClassName" value="${jdbc.driver}" />
+	<property name="url" value="${druid.url}" />
+	<property name="username" value="${druid.username}" />
+	<property name="password" value="${druid.password}" />
+	<property name="driverClassName" value="${druid.driverClassName}" />
 	<!-- 配置初始化大小、最小、最大 -->
    	<property name="initialSize" value="${druid.initialSize}"/>
    	<property name="minIdle" value="${druid.minIdle}"/>
@@ -104,6 +104,9 @@
     </list>  
    </property>  
 </bean>   -->
+
 <!-- 导入相关配置 -->
 <import resource="classpath:activiti.cfg.xml"/> 
+<!-- 引入同文件夹下的redis属性配置文件 -->
+<import resource="classpath:redis/redis-context.xml"/>
 </beans>
