@@ -142,7 +142,11 @@ function createMenu(menuData){
 		}
 		var menucDom = $(".sMenuDivA[pid='"+sysmenu.fParent+"']").find(".menuC");
 		for(var z=0;z<sysFunc.length;z++){
-			var menuchtml='<div class="menuC-a" data-menuid="'+sysFunc[z].fBh+'" data-url="'+sysFunc[z].fUrl+'" onclick="openPage(this)">'+sysFunc[z].fMc+'</div>';
+			var djlxId = "";
+			if(sysFunc[z].fP2Id != "" && sysFunc[z].fP2Id != null){
+				djlxId = sysFunc[z].fP2Id;
+			}
+			var menuchtml='<div class="menuC-a" data-djlxId="'+djlxId+'" data-menuid="'+sysFunc[z].fBh+'" data-url="'+sysFunc[z].fUrl+'" onclick="openPage(this)">'+sysFunc[z].fMc+'</div>';
 			menucDom.append(menuchtml);
 		}
 	}
@@ -188,8 +192,12 @@ function createMenus(menuData){
 			menubDom.append(menubhtml);
 		}
 		if(sysmenu.fLevel==4){
+			var djlxId = "";
+			if(sysmenu.sysFuns[0].fP2Id != "" && sysmenu.sysFuns[0].fP2Id != null){
+				djlxId = sysmenu.sysFuns[0].fP2Id;
+			}
 			var menucDom = $(".menuB[tid='"+sysmenu.fParent+"']").find(".menuC");
-			var menuchtml = '<div class="menuC-a" data-menuid="'+sysmenu.sysFuns[0].fBh+'" data-url="'+sysmenu.sysFuns[0].fUrl+'" onclick="openPage(this)">'+sysmenu.fMenuName+'</div>';
+			var menuchtml = '<div class="menuC-a" data-djlxId="'+djlxId+'" data-menuid="'+sysmenu.sysFuns[0].fBh+'" data-url="'+sysmenu.sysFuns[0].fUrl+'" onclick="openPage(this)">'+sysmenu.fMenuName+'</div>';
 			menucDom.append(menuchtml);
 		}
 	}
@@ -241,7 +249,11 @@ function init(){
 function openPage(self){
 	var title=$(self).text();//获取导航条名称
 	var menuid=$(self).data("menuid"); //获取菜单id
+	var djlxId=$(self).attr("data-djlxid"); //单据类型id
 	var url=$(self).data("url");//获取url
+	if(djlxId != ""){
+		url = url + "?fDjlxId="+djlxId+"";
+	}
 	var iframeArr=$(".iframecom[frameid='"+menuid+"']");
 	$(".iframecom").hide(); //隐藏所有iframe
 	if(iframeArr.length==0){

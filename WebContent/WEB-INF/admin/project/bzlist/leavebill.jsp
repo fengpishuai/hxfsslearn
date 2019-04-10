@@ -72,16 +72,16 @@
         dom.setGridWidth(iframeWidth-5);
     }
     function createGrid(){
-    	dom.hlicGrid({
+    	dom.hlicDctGrid({
 			"url"      : "${ctx}/leave/queryLeavebillList.action",
             "width"    : conWidth-5,
             "height"   : conHeight-56,
             "cellEdit" : false,
             "colNames" : ['单据编号','请假天数','请假原因','制单时间','状态','制单人','起始时间','请假类型'],
             "colModel" : [ 
-                 {name:'id',index:'id',editable: true, width:60, sorttype:"int"},
+                 {name:'id',index:'id',editable: true, width:220, sorttype:"int"},
                  {name:'days',index:'days',editable: true, width:60, sorttype:"int"}, 
-                 {name:'content',index:'content',editable: true,align:"center", width:90}, 
+                 {name:'content',index:'content',editable: true,align:"center", width:180}, 
                  {name:'leavedate',index:'leavedate',editable: true, width:100},
                  {name:'state',index:'state',editable: true, width:100},
                  {name:'userid',index:'userid',editable: true, width:100},

@@ -16,7 +16,7 @@
     bottom: 40px;
     left: 0px;
     right: 0px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .btndiv{
@@ -57,6 +57,7 @@
 <script type="text/javascript">
 var dom = "",
     stoId = "",
+    dctId = "",
     conWidth = $("#side").width(),
     conHeight = $("#side").height();
 $(document).ready(function(){
@@ -66,6 +67,7 @@ $(document).ready(function(){
 });
 function initSelect(inputData){
 	stoId = inputData.stoId;
+	dctId = inputData.dctId;
 	dom = $("#selectGrid");
 	createGrid();
 }
@@ -76,7 +78,7 @@ function createGrid(){
 		"STO_KEY"  : "COL_PK",
 		//"SQL_Filter":SQL_Filter,
         "width"    : conWidth-5,
-        "height"   : conHeight-56,
+        "height"   : 260,
         "cellEdit" : false,
         "colNames" : ["唯一编号","标识","标题"], 
         "colModel" : [
@@ -89,19 +91,20 @@ function createGrid(){
 }
 function initGrid(){
 	var sendData = {};
-	sendData.STO_ID = stoId;
+	sendData.stoId = stoId;
+	sendData.dctId = dctId;
 	$.ajax({
-        url:sys_ctx+"/base/queryDoDataList.action",
+        url:sys_ctx+"/base/queryPkHelpList.action",
         type:'post',
         dataType:'json',
         contentType:"application/json",
         data:JSON.stringify(sendData),
         async:false
     }).done(function(data){
-    	if(data.colList.length > 0){
+    	if(data.length > 0){
     		dom.jqGrid('clearGridData');
-    		for ( var i = 0; i < data.colList.length; i++){
-    			dom.jqGrid('addRowData', i + 1, data.colList[i]);
+    		for ( var i = 0; i < data.length; i++){
+    			dom.jqGrid('addRowData', i + 1, data[i]);
         	}
     	}
     });

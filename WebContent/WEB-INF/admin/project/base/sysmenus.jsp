@@ -123,7 +123,8 @@
     	dom.hlicDctGrid({
 			"url"      : "${ctx}/base/queryDctPageList.action",
 			"DCT_ID"   : "SYS_MENUS",
-			"DCT_KEY"  :"F_MENU_ID",
+			"DCT_KEY"  : "F_MENU_ID",
+			"PARENT_ID": "F_PARENT",
 			"SQL_Filter":sendData,
             "width"    : conWidth-5,
             "height"   : conHeight-56,

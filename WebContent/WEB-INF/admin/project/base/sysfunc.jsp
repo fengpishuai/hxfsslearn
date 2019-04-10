@@ -126,6 +126,7 @@
             "createComplete":function(){
             	var list = [];
             	var queryDatas = hlicGridPlus.queryTableRows("queryBase/querySysFuncGridList.action",{});
+            	list.push({id:"",text:"全部"});
             	if(queryDatas.length > 0){
             		$.each(queryDatas, function(k,v){
             			list.push({id:v.fId,text:v.fName});

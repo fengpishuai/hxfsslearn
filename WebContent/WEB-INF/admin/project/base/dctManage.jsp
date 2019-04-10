@@ -462,7 +462,8 @@ queryDofDictsList         dof_dicts 查询不同平台下有哪些dct
     //唯一主键弹出框
     function selectPkHelp(){
     	var sendData = {};
-    	sendData.stoId = doSaveData.stoId;
+    	sendData.stoId = "";
+    	sendData.dctId = doSaveData.dctId;
     	$(window.top.document).find("#selectPkHelp").hlicComSelect({
             "width"    : "600px",//弹出框的宽度
             "height"   : "360px",//弹出框的高度   
@@ -588,7 +589,7 @@ queryDofDictsList         dof_dicts 查询不同平台下有哪些dct
     }
     //设置存储表属性
     function setStoParam(stoKey, stoParam){
-    	var stoId = doSaveData.stoId;
+    	var stoId = doSaveData.dctId;
     	var stoObj = {},
     	    hasStore = [],
     	    isParam = true,

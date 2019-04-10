@@ -63,6 +63,7 @@
         return this.each(function(){
         	var lastrow = 0,
                 lastcell=0,
+                stoClient = {},//初始化数据
                 editData=[],//编辑的数据
                 newData = [],//新增的数据
                 delData = [];//删除的数据
@@ -89,6 +90,7 @@
                     }).done(function(data){
                     	if(data.colList.length > 0){
                     		setColModel(data.colList);
+                    		stoClient["dofStores"] = data.dictList;
                     	}else{
                     		console.log("请检查dof_dct_cols中列，是否配置正确！");
                     	}
@@ -413,24 +415,60 @@
             //新增一行数据
             this.addNewRow = function(param){
                 var id = $(this).jqGrid('getDataIDs');
-            	var rowId = 0;
+            	var rowId = 0,
+            		column = 0;
                 if(id.length > 0){
                 	rowId = parseInt(id[id.length-1]);
                 }
+                if(stoClient.dofStores.length > 0){
+                	var storeParam = stoClient.dofStores[0];
+                	if(storeParam.stoKeyCrtr == "UUID"){
+                		column = this.queryUniqueKeyValue(storeParam.stoId, "");
+                	}else if(storeParam.stoKeyCrtr != ""){
+                		if(id.length > 0){
+                			var rowData = $(this).jqGrid('getRowData',rowId);
+                			var fId = rowData[storeParam.stoKeyField];
+                			fId = parseInt(fId.substr(-6))+1;
+                			column = fId;
+                		}
+                	}
+                }
+                param[storeParam.stoKeyField] = column;
             	var oneRow = {};
             	$(this).jqGrid("addRowData",rowId+1,param);
             	oneRow[rowId+1] = param;
             	//给新增数组赋值
             	newData.push(oneRow);
             };
+            this.queryUniqueKeyValue = function(tId, parentId){
+            	var column = "";
+            	var saveData = {
+            		"tId":tId,
+            		"parentId":parentId
+            	};
+            	$.ajax({
+                    "url":sys_ctx+"/base/queryUniqueKeyValue.action", 
+                    "type":'post', 
+                    "dataType":'json', 
+                    "contentType":"application/json",
+                    "data":JSON.stringify(saveData), 
+                    "async":false,
+                    "success" : function(data){ 
+                    	if(data.type == 1){
+                    		column = data.message;
+                    	}
+                    } 
+                });
+            	return column;
+            };
             //删除行
             this.deleteRow = function(){
             	var rowid = $(this).jqGrid("getGridParam","selrow");
             	var rowData = $(this).jqGrid("getRowData",rowid);
-            	var IdField = opts.STO_KEY;
+            	var storeParam = stoClient.dofStores[0];
             	var obj={};
-            	if(rowData[IdField] != ""){
-            		obj[IdField] = rowData[IdField];
+            	if(rowData[storeParam.stoKeyField] != ""){
+            		obj[storeParam.stoKeyField] = rowData[storeParam.stoKeyField];
                 	delData.push(obj);
             	}
             	$(this).find("tr[id='"+rowid+"']").attr("style","display:none");
@@ -506,7 +544,8 @@
             this.saveData = function(path) {
             	this.removeEditState();
             	var gridSelf = this;
-            	var saveData = {},
+            	var storeParam = stoClient.dofStores[0];
+            	var saveData = {"stoId":storeParam.stoId,"fId":storeParam.stoKeyField},
             		editSave = [],
             		newSave = [],
             		delSave = [];

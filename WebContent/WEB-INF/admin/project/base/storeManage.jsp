@@ -430,7 +430,7 @@ queryDofStoresList           dof_stores 查询不同平台下有哪些store
     	for ( var i = 0; i < 20; i++){
     		//唯一主键
     		if(data[i].f_TASK_KEY == "StoKeyField"){
-    			data[i].f_TASK_VALUE = "<div class='editCell help-cell' t='12' cell='text' aria-describedby='' editable='true'><input type='text' id='stoPeyField' style='width: 100%;height: 27px;' value='"+data[i].f_TASK_VALUE+"' /></div><i name='' class='commonGridSearch' onclick='selectPkHelp()'></i>";
+    			data[i].f_TASK_VALUE = "<div class='editCell help-cell' t='12' cell='text' aria-describedby='' editable='true'><input type='text' id='stoKeyField' style='width: 100%;height: 27px;' value='"+data[i].f_TASK_VALUE+"' /></div><i name='' class='commonGridSearch' onclick='selectPkHelp()'></i>";
     		}
     		//键生成规则
             if(data[i].f_TASK_KEY == "StoKeyMode"){
@@ -447,6 +447,10 @@ queryDofStoresList           dof_stores 查询不同平台下有哪些store
             	}
         		data[i].f_TASK_VALUE = "<div class='editCell' t='3' cell='select' aria-describedby='' editable='true'>"+selectObjHtml+"</div>";
     		}
+    		//键生成算法 f_TASK_VALUE
+            if(data[i].f_TASK_KEY == "StoKeyCrtr"){
+    			data[i].f_TASK_VALUE = "<div class='editCell help-cell' t='12' cell='text' aria-describedby='' editable='true'><input type='text' id='stoKeyCrtr' style='width: 100%;height: 27px;' value='"+data[i].f_TASK_VALUE+"' /></div><i name='' class='commonGridSearch' onclick='selectKeyCrtrHelp()'></i>";
+    		}
 			leftDom.jqGrid('addRowData', i + 1, data[i]);
     	}
     	$("#stoKeyMode").change(function(){
@@ -458,6 +462,7 @@ queryDofStoresList           dof_stores 查询不同平台下有哪些store
     function selectPkHelp(){
     	var sendData = {};
     	sendData.stoId = doSaveData.stoId;
+    	sendData.dctId = "";
     	$(window.top.document).find("#selectPkHelp").hlicComSelect({
             "width"    : "600px",//弹出框的宽度
             "height"   : "360px",//弹出框的高度   
@@ -469,8 +474,27 @@ queryDofStoresList           dof_stores 查询不同平台下有哪些store
             "parenturl"  : window.location.href,
             "callback" : function(data){
             	var fpkey = data.F_ID;
-            	$("#stoPeyField").val(fpkey);
+            	$("#stoKeyField").val(fpkey);
             	setStoParam("stoKeyField",fpkey);
+            }
+        });
+    }
+    //键生成算法
+    function selectKeyCrtrHelp(){
+    	var sendData = {};
+    	$(window.top.document).find("#selectKeyCrtrHelp").hlicComSelect({
+            "width"    : "600px",//弹出框的宽度
+            "height"   : "360px",//弹出框的高度   
+            "title":"设置条件",
+            "loadtext":"正在加载中...",
+            "url"      : sys_ctx+"/common/help/selectKeyCrtrHelp.jsp",
+            "dydata"   : sendData,
+            "onlyfirst"  : false,
+            "parenturl"  : window.location.href,
+            "callback" : function(data){
+            	var fpkey = data.F_ID;
+            	$("#stoKeyCrtr").val(fpkey);
+            	setStoParam("stoKeyCrtr",fpkey);
             }
         });
     }

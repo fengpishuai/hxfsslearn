@@ -46,6 +46,7 @@
             "url"         : "",
             "DCT_ID"      : "",
             "DCT_KEY"     : "",
+            "PARENT_ID"   : "",
             "DCT_HELP"    : false,//字典做公共弹出框时，只显示边框和名称
             "SQL_Filter"  : "",
             "SQL_Where"   : "",
@@ -440,11 +441,44 @@
             //新增一行数据
             this.addNewRow = function(param){
                 var id = $(this).jqGrid('getDataIDs'); 
-            	var rowId = 0;
+            	var rowId = 0,
+            		column = 0;
                 if(id.length > 0){
                 	rowId = parseInt(id[id.length-1]);
+                	var rowData = $(this).jqGrid('getRowData',rowId); 
+                	column = parseInt(rowData[opts.DCT_KEY])+1;
                 }
-                this.queryUniqueKeyValue(opts.DCT_ID, "");
+                if(column == 0){
+                	//分级字典控制
+                	if(param.F_PARENT != ""){
+                		column = parseInt(param.F_PARENT + "001");
+                	}else{
+                		column = this.queryUniqueKeyValue(opts.DCT_ID, opts.PARENT_ID);
+                	}
+                	stoClient.column = column;
+                }else{
+                	if(stoClient.column == undefined && opts.PARENT_ID == ""){
+                		var retColumn = this.queryUniqueKeyValue(opts.DCT_ID, opts.PARENT_ID);
+                    	if(parseInt(column) < parseInt(retColumn)){
+                    		stoClient.column = parseInt(retColumn);
+                    		column = retColumn;
+                    	}else{
+                    		stoClient.column = column;
+                    	}
+                	}else{
+                		if(stoClient.column  == undefined){
+                			stoClient.column = column;
+                		}else{
+                			if(opts.PARENT_ID == ""){
+                				column = stoClient.column + 1;
+                				stoClient.column = column;
+                			}
+                		}
+                	}
+                }
+                if(column != ""){
+                	param[opts.DCT_KEY] = column;
+                }
             	var oneRow = {};
             	$(this).jqGrid("addRowData",rowId+1,param);
             	oneRow[rowId+1] = param;
@@ -452,23 +486,25 @@
             	newData.push(oneRow);
             };
             this.queryUniqueKeyValue = function(tId, parentId){
+            	var column = "";
             	var saveData = {
             		"tId":tId,
             		"parentId":parentId
             	};
             	$.ajax({
-                    url:sys_ctx+"/base/queryUniqueKeyValue.action", 
-                    type:'post', 
-                    dataType:'json', 
-                    contentType:"application/json",
-                    data:JSON.stringify(saveData), 
-                    success : function(data){ 
+                    "url":sys_ctx+"/base/queryUniqueKeyValue.action", 
+                    "type":'post', 
+                    "dataType":'json', 
+                    "contentType":"application/json",
+                    "data":JSON.stringify(saveData), 
+                    "async":false,
+                    "success" : function(data){ 
                     	if(data.type == 1){
-                 
-                            tipAlert("提示","成功","确定");
+                    		column = data.message;
                     	}
                     } 
                 });
+            	return column;
             };
             //删除行
             this.deleteRow = function(){
@@ -633,7 +669,7 @@
             this.hlicDctGrid_loadComplete = function(){
 		        $(this).trigger("hlicDctGrid_loadCompleteTrigger", {});
 			};
-            this._create();
+			this._create();
         });    
 	}
 })(jQuery);

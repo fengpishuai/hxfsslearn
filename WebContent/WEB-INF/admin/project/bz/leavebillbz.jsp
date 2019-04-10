@@ -24,35 +24,35 @@
         <form id="leaveBillForm" action="">
             <input type="hidden" name="flowName" value="${flowName }"/>
             <div class="mid-table">
-            <table class="mid-tab" cellspacing="0" cellpadding="0">
-                <tbody>
-                    <tr>
-                        <td><div>单据编号：</div></td>
-                        <td class="even"><div><input type="text" name="id" value="${id }"/></div></td>
-                        <td><div>单据日期：</div></td>
-                        <td class="even"><div><input type="text" name="leavedate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
-                        <td><div>请假人：</div></td>
-                        <td class="even"><div><input type="text" name="userid"></div></td>
-                        <td><div>假期类型：</div></td>
-                        <td class="even"><div><input type="text" name="leavetype"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div>起始日期：</div></td>
-                        <td class="even"><div><input type="text" name="startdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
-                        <td><div>结束日期：</div></td>
-                        <td class="even"><div><input type="text" name="enddate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
-                        <td><div>申请天数：</div></td>
-                        <td class="even"><div><input type="text" name="days"/></div></td>
-                        <td><div>请假原因：</div></td>
-                        <td class="even"><div><input type="text" name="remark"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div>备注：</div></td>
-                        <td colspan="7" class="even"><div><input type="text" name="content" /></div></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+	            <table class="mid-tab" cellspacing="0" cellpadding="0">
+	                <tbody>
+	                    <tr>
+	                        <td><div>单据编号：</div></td>
+	                        <td class="even"><div><input type="text" name="id" value="${id }"/></div></td>
+	                        <td><div>单据日期：</div></td>
+	                        <td class="even"><div><input type="text" name="leavedate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
+	                        <td><div>请假人：</div></td>
+	                        <td class="even"><div><input type="text" name="userid"></div></td>
+	                        <td><div>假期类型：</div></td>
+	                        <td class="even"><div><input type="text" name="leavetype"></div></td>
+	                    </tr>
+	                    <tr>
+	                        <td><div>起始日期：</div></td>
+	                        <td class="even"><div><input type="text" name="startdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
+	                        <td><div>结束日期：</div></td>
+	                        <td class="even"><div><input type="text" name="enddate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></div></td>
+	                        <td><div>申请天数：</div></td>
+	                        <td class="even"><div><input type="text" name="days"/></div></td>
+	                        <td><div>请假原因：</div></td>
+	                        <td class="even"><div><input type="text" name="remark"></div></td>
+	                    </tr>
+	                    <tr>
+	                        <td><div>备注：</div></td>
+	                        <td colspan="7" class="even"><div><input type="text" name="content" /></div></td>
+	                    </tr>
+	                </tbody>
+	            </table>
+        	</div>
         </form>
         <div class="mid-sm">
             <div class="sm-title">填报说明</div>

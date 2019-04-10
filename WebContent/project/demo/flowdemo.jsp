@@ -81,7 +81,7 @@
         <div><a class="webbtn" href="javaScript:void(0)" style="" onclick="queryWDDJ()"><span class="ico_btn_add"></span><span> 我的单据</span></a></div>
         <div class="rowbox">
             <span>用户ID：</span>
-            <input type="text" id="wddbuserId" class="cellinput"/>
+            <input type="text" id="wddjuserId" class="cellinput"/>
         </div>
     </div>
     <!-- 审批流程 -->
@@ -193,7 +193,7 @@ function queryTask(){
     });
 }
 function queryWDDJ(){
-	var userId = $.trim($("#wddbuserId").val());
+	var userId = $.trim($("#wddjuserId").val());
 	var saveData = {};
 	saveData.userId = userId;
 	$.ajax({ 
