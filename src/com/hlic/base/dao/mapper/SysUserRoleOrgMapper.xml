@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.SysUserRoleOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.SysUserRoleOrg" >
+    <id column="F_PKEY" property="fPkey" jdbcType="VARCHAR" />
+    <result column="F_USER_ID" property="fUserId" jdbcType="VARCHAR" />
+    <result column="F_ROLE_ID" property="fRoleId" jdbcType="VARCHAR" />
+    <result column="F_COMP_ID" property="fCompId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_PKEY, F_USER_ID, F_ROLE_ID, F_COMP_ID
+  </sql>
+  <select id="selectUserAndRoleByExample"  resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.SysUserRoleOrgExample">
+  	select
+    <if test="distinct" >
+      distinct
+    </if>
+    F_USER_ID, F_ROLE_ID from sys_user_role_org
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.SysUserRoleOrgExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_user_role_org
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="querySysUserRoleOrgList" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.SysUserRoleOrg">
+  	select * from sys_user_role_org
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_role_org
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_user_role_org
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.SysUserRoleOrgExample" >
+    delete from sys_user_role_org
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.SysUserRoleOrg" >
+    insert into sys_user_role_org (F_PKEY, F_USER_ID, F_ROLE_ID, 
+      F_COMP_ID)
+    values (#{fPkey,jdbcType=VARCHAR}, #{fUserId,jdbcType=VARCHAR}, #{fRoleId,jdbcType=VARCHAR}, 
+      #{fCompId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.SysUserRoleOrg" >
+    insert into sys_user_role_org
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        F_PKEY,
+      </if>
+      <if test="fUserId != null" >
+        F_USER_ID,
+      </if>
+      <if test="fRoleId != null" >
+        F_ROLE_ID,
+      </if>
+      <if test="fCompId != null" >
+        F_COMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        #{fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fUserId != null" >
+        #{fUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fRoleId != null" >
+        #{fRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="fCompId != null" >
+        #{fCompId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.SysUserRoleOrgExample" resultType="java.lang.Integer" >
+    select count(*) from sys_user_role_org
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_user_role_org
+    <set >
+      <if test="record.fPkey != null" >
+        F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUserId != null" >
+        F_USER_ID = #{record.fUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fRoleId != null" >
+        F_ROLE_ID = #{record.fRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fCompId != null" >
+        F_COMP_ID = #{record.fCompId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_user_role_org
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_USER_ID = #{record.fUserId,jdbcType=VARCHAR},
+      F_ROLE_ID = #{record.fRoleId,jdbcType=VARCHAR},
+      F_COMP_ID = #{record.fCompId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hlic.base.pojo.po.SysUserRoleOrg" >
+    update sys_user_role_org
+    <set >
+      <if test="fUserId != null" >
+        F_USER_ID = #{fUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fRoleId != null" >
+        F_ROLE_ID = #{fRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="fCompId != null" >
+        F_COMP_ID = #{fCompId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hlic.base.pojo.po.SysUserRoleOrg" >
+    update sys_user_role_org
+    set F_USER_ID = #{fUserId,jdbcType=VARCHAR},
+      F_ROLE_ID = #{fRoleId,jdbcType=VARCHAR},
+      F_COMP_ID = #{fCompId,jdbcType=VARCHAR}
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.DofStoresMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.DofStores" >
+    <result column="STO_ID" property="stoId" jdbcType="VARCHAR" />
+    <result column="STO_CAPTION" property="stoCaption" jdbcType="VARCHAR" />
+    <result column="STO_ICON" property="stoIcon" jdbcType="VARCHAR" />
+    <result column="STO_INTER" property="stoInter" jdbcType="VARCHAR" />
+    <result column="STO_KEY_FIELD" property="stoKeyField" jdbcType="VARCHAR" />
+    <result column="STO_DOF_OBJ" property="stoDofObj" jdbcType="VARCHAR" />
+    <result column="STO_EDIT_CARD" property="stoEditCard" jdbcType="VARCHAR" />
+    <result column="STO_ACC_MODE" property="stoAccMode" jdbcType="VARCHAR" />
+    <result column="STO_ACC" property="stoAcc" jdbcType="VARCHAR" />
+    <result column="STO_OWNER_BA" property="stoOwnerBa" jdbcType="VARCHAR" />
+    <result column="STO_SINGLEKEY_MODE" property="stoSinglekeyMode" jdbcType="VARCHAR" />
+    <result column="STO_KEY_CRTR" property="stoKeyCrtr" jdbcType="VARCHAR" />
+    <result column="STO_KEY_CRTR_PARAM" property="stoKeyCrtrParam" jdbcType="VARCHAR" />
+    <result column="STO_KEY_MODE" property="stoKeyMode" jdbcType="VARCHAR" />
+    <result column="STO_ORDER" property="stoOrder" jdbcType="VARCHAR" />
+    <result column="STO_ORDER_FIELD" property="stoOrderField" jdbcType="VARCHAR" />
+    <result column="STO_PARENT" property="stoParent" jdbcType="VARCHAR" />
+    <result column="STO_PARENT_FIELD" property="stoParentField" jdbcType="VARCHAR" />
+    <result column="STO_COLLECT_ROW" property="stoCollectRow" jdbcType="VARCHAR" />
+    <result column="STO_ENTITYMAP" property="stoEntitymap" jdbcType="VARCHAR" />
+    <result column="STO_ENTITY" property="stoEntity" jdbcType="VARCHAR" />
+    <result column="STO_VERSION" property="stoVersion" jdbcType="VARCHAR" />
+    <result column="STO_SEPETABLE" property="stoSepetable" jdbcType="VARCHAR" />
+    <result column="STO_SEPE_SUFFIX" property="stoSepeSuffix" jdbcType="VARCHAR" />
+    <result column="STO_UNIQUECHECK" property="stoUniquecheck" jdbcType="VARCHAR" />
+    <result column="STO_UNIQUECHECK_FIELD" property="stoUniquecheckField" jdbcType="VARCHAR" />
+    <result column="STO_CAPTION_FIELD" property="stoCaptionField" jdbcType="VARCHAR" />
+    <result column="STO_SQLENABLE" property="stoSqlenable" jdbcType="VARCHAR" />
+    <result column="STO_SQLTEXT" property="stoSqltext" jdbcType="VARCHAR" />
+    <result column="STO_VARIABLE" property="stoVariable" jdbcType="VARCHAR" />
+    <result column="STO_EXP_RIGHT" property="stoExpRight" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    STO_ID, STO_CAPTION, STO_ICON, STO_INTER, STO_KEY_FIELD, STO_DOF_OBJ, STO_EDIT_CARD, 
+    STO_ACC_MODE, STO_ACC, STO_OWNER_BA, STO_SINGLEKEY_MODE, STO_KEY_CRTR, STO_KEY_CRTR_PARAM, 
+    STO_KEY_MODE, STO_ORDER, STO_ORDER_FIELD, STO_PARENT, STO_PARENT_FIELD, STO_COLLECT_ROW, 
+    STO_ENTITYMAP, STO_ENTITY, STO_VERSION, STO_SEPETABLE, STO_SEPE_SUFFIX, STO_UNIQUECHECK, 
+    STO_UNIQUECHECK_FIELD, STO_CAPTION_FIELD, STO_SQLENABLE, STO_SQLTEXT, STO_VARIABLE, 
+    STO_EXP_RIGHT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.DofStoresExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dof_stores
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.DofStoresExample" >
+    delete from dof_stores
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.DofStores" >
+    insert into dof_stores (STO_ID, STO_CAPTION, STO_ICON, 
+      STO_INTER, STO_KEY_FIELD, STO_DOF_OBJ, 
+      STO_EDIT_CARD, STO_ACC_MODE, STO_ACC, 
+      STO_OWNER_BA, STO_SINGLEKEY_MODE, STO_KEY_CRTR, 
+      STO_KEY_CRTR_PARAM, STO_KEY_MODE, STO_ORDER, 
+      STO_ORDER_FIELD, STO_PARENT, STO_PARENT_FIELD, 
+      STO_COLLECT_ROW, STO_ENTITYMAP, STO_ENTITY, 
+      STO_VERSION, STO_SEPETABLE, STO_SEPE_SUFFIX, 
+      STO_UNIQUECHECK, STO_UNIQUECHECK_FIELD, STO_CAPTION_FIELD, 
+      STO_SQLENABLE, STO_SQLTEXT, STO_VARIABLE, 
+      STO_EXP_RIGHT)
+    values (#{stoId,jdbcType=VARCHAR}, #{stoCaption,jdbcType=VARCHAR}, #{stoIcon,jdbcType=VARCHAR}, 
+      #{stoInter,jdbcType=VARCHAR}, #{stoKeyField,jdbcType=VARCHAR}, #{stoDofObj,jdbcType=VARCHAR}, 
+      #{stoEditCard,jdbcType=VARCHAR}, #{stoAccMode,jdbcType=VARCHAR}, #{stoAcc,jdbcType=VARCHAR}, 
+      #{stoOwnerBa,jdbcType=VARCHAR}, #{stoSinglekeyMode,jdbcType=VARCHAR}, #{stoKeyCrtr,jdbcType=VARCHAR}, 
+      #{stoKeyCrtrParam,jdbcType=VARCHAR}, #{stoKeyMode,jdbcType=VARCHAR}, #{stoOrder,jdbcType=VARCHAR}, 
+      #{stoOrderField,jdbcType=VARCHAR}, #{stoParent,jdbcType=VARCHAR}, #{stoParentField,jdbcType=VARCHAR}, 
+      #{stoCollectRow,jdbcType=VARCHAR}, #{stoEntitymap,jdbcType=VARCHAR}, #{stoEntity,jdbcType=VARCHAR}, 
+      #{stoVersion,jdbcType=VARCHAR}, #{stoSepetable,jdbcType=VARCHAR}, #{stoSepeSuffix,jdbcType=VARCHAR}, 
+      #{stoUniquecheck,jdbcType=VARCHAR}, #{stoUniquecheckField,jdbcType=VARCHAR}, #{stoCaptionField,jdbcType=VARCHAR}, 
+      #{stoSqlenable,jdbcType=VARCHAR}, #{stoSqltext,jdbcType=VARCHAR}, #{stoVariable,jdbcType=VARCHAR}, 
+      #{stoExpRight,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.DofStores" >
+    insert into dof_stores
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stoId != null" >
+        STO_ID,
+      </if>
+      <if test="stoCaption != null" >
+        STO_CAPTION,
+      </if>
+      <if test="stoIcon != null" >
+        STO_ICON,
+      </if>
+      <if test="stoInter != null" >
+        STO_INTER,
+      </if>
+      <if test="stoKeyField != null" >
+        STO_KEY_FIELD,
+      </if>
+      <if test="stoDofObj != null" >
+        STO_DOF_OBJ,
+      </if>
+      <if test="stoEditCard != null" >
+        STO_EDIT_CARD,
+      </if>
+      <if test="stoAccMode != null" >
+        STO_ACC_MODE,
+      </if>
+      <if test="stoAcc != null" >
+        STO_ACC,
+      </if>
+      <if test="stoOwnerBa != null" >
+        STO_OWNER_BA,
+      </if>
+      <if test="stoSinglekeyMode != null" >
+        STO_SINGLEKEY_MODE,
+      </if>
+      <if test="stoKeyCrtr != null" >
+        STO_KEY_CRTR,
+      </if>
+      <if test="stoKeyCrtrParam != null" >
+        STO_KEY_CRTR_PARAM,
+      </if>
+      <if test="stoKeyMode != null" >
+        STO_KEY_MODE,
+      </if>
+      <if test="stoOrder != null" >
+        STO_ORDER,
+      </if>
+      <if test="stoOrderField != null" >
+        STO_ORDER_FIELD,
+      </if>
+      <if test="stoParent != null" >
+        STO_PARENT,
+      </if>
+      <if test="stoParentField != null" >
+        STO_PARENT_FIELD,
+      </if>
+      <if test="stoCollectRow != null" >
+        STO_COLLECT_ROW,
+      </if>
+      <if test="stoEntitymap != null" >
+        STO_ENTITYMAP,
+      </if>
+      <if test="stoEntity != null" >
+        STO_ENTITY,
+      </if>
+      <if test="stoVersion != null" >
+        STO_VERSION,
+      </if>
+      <if test="stoSepetable != null" >
+        STO_SEPETABLE,
+      </if>
+      <if test="stoSepeSuffix != null" >
+        STO_SEPE_SUFFIX,
+      </if>
+      <if test="stoUniquecheck != null" >
+        STO_UNIQUECHECK,
+      </if>
+      <if test="stoUniquecheckField != null" >
+        STO_UNIQUECHECK_FIELD,
+      </if>
+      <if test="stoCaptionField != null" >
+        STO_CAPTION_FIELD,
+      </if>
+      <if test="stoSqlenable != null" >
+        STO_SQLENABLE,
+      </if>
+      <if test="stoSqltext != null" >
+        STO_SQLTEXT,
+      </if>
+      <if test="stoVariable != null" >
+        STO_VARIABLE,
+      </if>
+      <if test="stoExpRight != null" >
+        STO_EXP_RIGHT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stoId != null" >
+        #{stoId,jdbcType=VARCHAR},
+      </if>
+      <if test="stoCaption != null" >
+        #{stoCaption,jdbcType=VARCHAR},
+      </if>
+      <if test="stoIcon != null" >
+        #{stoIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="stoInter != null" >
+        #{stoInter,jdbcType=VARCHAR},
+      </if>
+      <if test="stoKeyField != null" >
+        #{stoKeyField,jdbcType=VARCHAR},
+      </if>
+      <if test="stoDofObj != null" >
+        #{stoDofObj,jdbcType=VARCHAR},
+      </if>
+      <if test="stoEditCard != null" >
+        #{stoEditCard,jdbcType=VARCHAR},
+      </if>
+      <if test="stoAccMode != null" >
+        #{stoAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="stoAcc != null" >
+        #{stoAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="stoOwnerBa != null" >
+        #{stoOwnerBa,jdbcType=VARCHAR},
+      </if>
+      <if test="stoSinglekeyMode != null" >
+        #{stoSinglekeyMode,jdbcType=VARCHAR},
+      </if>
+      <if test="stoKeyCrtr != null" >
+        #{stoKeyCrtr,jdbcType=VARCHAR},
+      </if>
+      <if test="stoKeyCrtrParam != null" >
+        #{stoKeyCrtrParam,jdbcType=VARCHAR},
+      </if>
+      <if test="stoKeyMode != null" >
+        #{stoKeyMode,jdbcType=VARCHAR},
+      </if>
+      <if test="stoOrder != null" >
+        #{stoOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="stoOrderField != null" >
+        #{stoOrderField,jdbcType=VARCHAR},
+      </if>
+      <if test="stoParent != null" >
+        #{stoParent,jdbcType=VARCHAR},
+      </if>
+      <if test="stoParentField != null" >
+        #{stoParentField,jdbcType=VARCHAR},
+      </if>
+      <if test="stoCollectRow != null" >
+        #{stoCollectRow,jdbcType=VARCHAR},
+      </if>
+      <if test="stoEntitymap != null" >
+        #{stoEntitymap,jdbcType=VARCHAR},
+      </if>
+      <if test="stoEntity != null" >
+        #{stoEntity,jdbcType=VARCHAR},
+      </if>
+      <if test="stoVersion != null" >
+        #{stoVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="stoSepetable != null" >
+        #{stoSepetable,jdbcType=VARCHAR},
+      </if>
+      <if test="stoSepeSuffix != null" >
+        #{stoSepeSuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="stoUniquecheck != null" >
+        #{stoUniquecheck,jdbcType=VARCHAR},
+      </if>
+      <if test="stoUniquecheckField != null" >
+        #{stoUniquecheckField,jdbcType=VARCHAR},
+      </if>
+      <if test="stoCaptionField != null" >
+        #{stoCaptionField,jdbcType=VARCHAR},
+      </if>
+      <if test="stoSqlenable != null" >
+        #{stoSqlenable,jdbcType=VARCHAR},
+      </if>
+      <if test="stoSqltext != null" >
+        #{stoSqltext,jdbcType=VARCHAR},
+      </if>
+      <if test="stoVariable != null" >
+        #{stoVariable,jdbcType=VARCHAR},
+      </if>
+      <if test="stoExpRight != null" >
+        #{stoExpRight,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.DofStoresExample" resultType="java.lang.Integer" >
+    select count(*) from dof_stores
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dof_stores
+    <set >
+      <if test="record.stoId != null" >
+        STO_ID = #{record.stoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoCaption != null" >
+        STO_CAPTION = #{record.stoCaption,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoIcon != null" >
+        STO_ICON = #{record.stoIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoInter != null" >
+        STO_INTER = #{record.stoInter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoKeyField != null" >
+        STO_KEY_FIELD = #{record.stoKeyField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoDofObj != null" >
+        STO_DOF_OBJ = #{record.stoDofObj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoEditCard != null" >
+        STO_EDIT_CARD = #{record.stoEditCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoAccMode != null" >
+        STO_ACC_MODE = #{record.stoAccMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoAcc != null" >
+        STO_ACC = #{record.stoAcc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoOwnerBa != null" >
+        STO_OWNER_BA = #{record.stoOwnerBa,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoSinglekeyMode != null" >
+        STO_SINGLEKEY_MODE = #{record.stoSinglekeyMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoKeyCrtr != null" >
+        STO_KEY_CRTR = #{record.stoKeyCrtr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoKeyCrtrParam != null" >
+        STO_KEY_CRTR_PARAM = #{record.stoKeyCrtrParam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoKeyMode != null" >
+        STO_KEY_MODE = #{record.stoKeyMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoOrder != null" >
+        STO_ORDER = #{record.stoOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoOrderField != null" >
+        STO_ORDER_FIELD = #{record.stoOrderField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoParent != null" >
+        STO_PARENT = #{record.stoParent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoParentField != null" >
+        STO_PARENT_FIELD = #{record.stoParentField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoCollectRow != null" >
+        STO_COLLECT_ROW = #{record.stoCollectRow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoEntitymap != null" >
+        STO_ENTITYMAP = #{record.stoEntitymap,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoEntity != null" >
+        STO_ENTITY = #{record.stoEntity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoVersion != null" >
+        STO_VERSION = #{record.stoVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoSepetable != null" >
+        STO_SEPETABLE = #{record.stoSepetable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoSepeSuffix != null" >
+        STO_SEPE_SUFFIX = #{record.stoSepeSuffix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoUniquecheck != null" >
+        STO_UNIQUECHECK = #{record.stoUniquecheck,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoUniquecheckField != null" >
+        STO_UNIQUECHECK_FIELD = #{record.stoUniquecheckField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoCaptionField != null" >
+        STO_CAPTION_FIELD = #{record.stoCaptionField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoSqlenable != null" >
+        STO_SQLENABLE = #{record.stoSqlenable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoSqltext != null" >
+        STO_SQLTEXT = #{record.stoSqltext,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoVariable != null" >
+        STO_VARIABLE = #{record.stoVariable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stoExpRight != null" >
+        STO_EXP_RIGHT = #{record.stoExpRight,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dof_stores
+    set STO_ID = #{record.stoId,jdbcType=VARCHAR},
+      STO_CAPTION = #{record.stoCaption,jdbcType=VARCHAR},
+      STO_ICON = #{record.stoIcon,jdbcType=VARCHAR},
+      STO_INTER = #{record.stoInter,jdbcType=VARCHAR},
+      STO_KEY_FIELD = #{record.stoKeyField,jdbcType=VARCHAR},
+      STO_DOF_OBJ = #{record.stoDofObj,jdbcType=VARCHAR},
+      STO_EDIT_CARD = #{record.stoEditCard,jdbcType=VARCHAR},
+      STO_ACC_MODE = #{record.stoAccMode,jdbcType=VARCHAR},
+      STO_ACC = #{record.stoAcc,jdbcType=VARCHAR},
+      STO_OWNER_BA = #{record.stoOwnerBa,jdbcType=VARCHAR},
+      STO_SINGLEKEY_MODE = #{record.stoSinglekeyMode,jdbcType=VARCHAR},
+      STO_KEY_CRTR = #{record.stoKeyCrtr,jdbcType=VARCHAR},
+      STO_KEY_CRTR_PARAM = #{record.stoKeyCrtrParam,jdbcType=VARCHAR},
+      STO_KEY_MODE = #{record.stoKeyMode,jdbcType=VARCHAR},
+      STO_ORDER = #{record.stoOrder,jdbcType=VARCHAR},
+      STO_ORDER_FIELD = #{record.stoOrderField,jdbcType=VARCHAR},
+      STO_PARENT = #{record.stoParent,jdbcType=VARCHAR},
+      STO_PARENT_FIELD = #{record.stoParentField,jdbcType=VARCHAR},
+      STO_COLLECT_ROW = #{record.stoCollectRow,jdbcType=VARCHAR},
+      STO_ENTITYMAP = #{record.stoEntitymap,jdbcType=VARCHAR},
+      STO_ENTITY = #{record.stoEntity,jdbcType=VARCHAR},
+      STO_VERSION = #{record.stoVersion,jdbcType=VARCHAR},
+      STO_SEPETABLE = #{record.stoSepetable,jdbcType=VARCHAR},
+      STO_SEPE_SUFFIX = #{record.stoSepeSuffix,jdbcType=VARCHAR},
+      STO_UNIQUECHECK = #{record.stoUniquecheck,jdbcType=VARCHAR},
+      STO_UNIQUECHECK_FIELD = #{record.stoUniquecheckField,jdbcType=VARCHAR},
+      STO_CAPTION_FIELD = #{record.stoCaptionField,jdbcType=VARCHAR},
+      STO_SQLENABLE = #{record.stoSqlenable,jdbcType=VARCHAR},
+      STO_SQLTEXT = #{record.stoSqltext,jdbcType=VARCHAR},
+      STO_VARIABLE = #{record.stoVariable,jdbcType=VARCHAR},
+      STO_EXP_RIGHT = #{record.stoExpRight,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.SysApplicationsMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.SysApplications" >
+    <result column="F_ID" property="fId" jdbcType="VARCHAR" />
+    <result column="F_CAPTION" property="fCaption" jdbcType="VARCHAR" />
+    <result column="F_ICON" property="fIcon" jdbcType="VARCHAR" />
+    <result column="F_DISABLE" property="fDisable" jdbcType="VARCHAR" />
+    <result column="F_ICON_L" property="fIconL" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_ID, F_CAPTION, F_ICON, F_DISABLE, F_ICON_L
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.SysApplicationsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_applications
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.SysApplicationsExample" >
+    delete from sys_applications
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.SysApplications" >
+    insert into sys_applications (F_ID, F_CAPTION, F_ICON, 
+      F_DISABLE, F_ICON_L)
+    values (#{fId,jdbcType=VARCHAR}, #{fCaption,jdbcType=VARCHAR}, #{fIcon,jdbcType=VARCHAR}, 
+      #{fDisable,jdbcType=VARCHAR}, #{fIconL,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.SysApplications" >
+    insert into sys_applications
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fId != null" >
+        F_ID,
+      </if>
+      <if test="fCaption != null" >
+        F_CAPTION,
+      </if>
+      <if test="fIcon != null" >
+        F_ICON,
+      </if>
+      <if test="fDisable != null" >
+        F_DISABLE,
+      </if>
+      <if test="fIconL != null" >
+        F_ICON_L,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fId != null" >
+        #{fId,jdbcType=VARCHAR},
+      </if>
+      <if test="fCaption != null" >
+        #{fCaption,jdbcType=VARCHAR},
+      </if>
+      <if test="fIcon != null" >
+        #{fIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="fDisable != null" >
+        #{fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="fIconL != null" >
+        #{fIconL,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.SysApplicationsExample" resultType="java.lang.Integer" >
+    select count(*) from sys_applications
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_applications
+    <set >
+      <if test="record.fId != null" >
+        F_ID = #{record.fId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fCaption != null" >
+        F_CAPTION = #{record.fCaption,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fIcon != null" >
+        F_ICON = #{record.fIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDisable != null" >
+        F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fIconL != null" >
+        F_ICON_L = #{record.fIconL,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_applications
+    set F_ID = #{record.fId,jdbcType=VARCHAR},
+      F_CAPTION = #{record.fCaption,jdbcType=VARCHAR},
+      F_ICON = #{record.fIcon,jdbcType=VARCHAR},
+      F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      F_ICON_L = #{record.fIconL,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

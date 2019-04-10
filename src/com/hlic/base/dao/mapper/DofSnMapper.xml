@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.DofSnMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.DofSn" >
+    <id column="SN_ID" property="snId" jdbcType="VARCHAR" />
+    <result column="SN_NAME" property="snName" jdbcType="VARCHAR" />
+    <result column="SN_ELEMENT_FIXED" property="snElementFixed" jdbcType="VARCHAR" />
+    <result column="SN_ELEMENT_TIME" property="snElementTime" jdbcType="VARCHAR" />
+    <result column="SN_ELEMENT_NUM" property="snElementNum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SN_ID, SN_NAME, SN_ELEMENT_FIXED, SN_ELEMENT_TIME, SN_ELEMENT_NUM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.DofSnExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dof_sn
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dof_sn
+    where SN_ID = #{snId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dof_sn
+    where SN_ID = #{snId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.DofSnExample" >
+    delete from dof_sn
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.DofSn" >
+    insert into dof_sn (SN_ID, SN_NAME, SN_ELEMENT_FIXED, 
+      SN_ELEMENT_TIME, SN_ELEMENT_NUM)
+    values (#{snId,jdbcType=VARCHAR}, #{snName,jdbcType=VARCHAR}, #{snElementFixed,jdbcType=VARCHAR}, 
+      #{snElementTime,jdbcType=VARCHAR}, #{snElementNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.DofSn" >
+    insert into dof_sn
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="snId != null" >
+        SN_ID,
+      </if>
+      <if test="snName != null" >
+        SN_NAME,
+      </if>
+      <if test="snElementFixed != null" >
+        SN_ELEMENT_FIXED,
+      </if>
+      <if test="snElementTime != null" >
+        SN_ELEMENT_TIME,
+      </if>
+      <if test="snElementNum != null" >
+        SN_ELEMENT_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="snId != null" >
+        #{snId,jdbcType=VARCHAR},
+      </if>
+      <if test="snName != null" >
+        #{snName,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementFixed != null" >
+        #{snElementFixed,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementTime != null" >
+        #{snElementTime,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementNum != null" >
+        #{snElementNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.DofSnExample" resultType="java.lang.Integer" >
+    select count(*) from dof_sn
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dof_sn
+    <set >
+      <if test="record.snId != null" >
+        SN_ID = #{record.snId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snName != null" >
+        SN_NAME = #{record.snName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snElementFixed != null" >
+        SN_ELEMENT_FIXED = #{record.snElementFixed,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snElementTime != null" >
+        SN_ELEMENT_TIME = #{record.snElementTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snElementNum != null" >
+        SN_ELEMENT_NUM = #{record.snElementNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dof_sn
+    set SN_ID = #{record.snId,jdbcType=VARCHAR},
+      SN_NAME = #{record.snName,jdbcType=VARCHAR},
+      SN_ELEMENT_FIXED = #{record.snElementFixed,jdbcType=VARCHAR},
+      SN_ELEMENT_TIME = #{record.snElementTime,jdbcType=VARCHAR},
+      SN_ELEMENT_NUM = #{record.snElementNum,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hlic.base.pojo.po.DofSn" >
+    update dof_sn
+    <set >
+      <if test="snName != null" >
+        SN_NAME = #{snName,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementFixed != null" >
+        SN_ELEMENT_FIXED = #{snElementFixed,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementTime != null" >
+        SN_ELEMENT_TIME = #{snElementTime,jdbcType=VARCHAR},
+      </if>
+      <if test="snElementNum != null" >
+        SN_ELEMENT_NUM = #{snElementNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SN_ID = #{snId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hlic.base.pojo.po.DofSn" >
+    update dof_sn
+    set SN_NAME = #{snName,jdbcType=VARCHAR},
+      SN_ELEMENT_FIXED = #{snElementFixed,jdbcType=VARCHAR},
+      SN_ELEMENT_TIME = #{snElementTime,jdbcType=VARCHAR},
+      SN_ELEMENT_NUM = #{snElementNum,jdbcType=VARCHAR}
+    where SN_ID = #{snId,jdbcType=VARCHAR}
+  </update>
+</mapper>
