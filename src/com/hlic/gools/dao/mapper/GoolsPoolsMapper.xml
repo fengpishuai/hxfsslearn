@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.gools.dao.GoolsPoolsMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.gools.pojo.po.GoolsPools" >
+    <result column="F_ID" property="fId" jdbcType="VARCHAR" />
+    <result column="F_SPMC" property="fSpmc" jdbcType="VARCHAR" />
+    <result column="F_SPBH" property="fSpbh" jdbcType="VARCHAR" />
+    <result column="F_GHSBH" property="fGhsbh" jdbcType="VARCHAR" />
+    <result column="F_JE" property="fJe" jdbcType="VARCHAR" />
+    <result column="F_DISABLE" property="fDisable" jdbcType="VARCHAR" />
+    <result column="F_T1" property="fT1" jdbcType="VARCHAR" />
+    <result column="F_T2" property="fT2" jdbcType="VARCHAR" />
+    <result column="F_T3" property="fT3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_ID, F_SPMC, F_SPBH, F_GHSBH, F_JE, F_DISABLE, F_T1, F_T2, F_T3
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.gools.pojo.po.GoolsPoolsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gools_pools
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.gools.pojo.po.GoolsPoolsExample" >
+    delete from gools_pools
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.gools.pojo.po.GoolsPools" >
+    insert into gools_pools (F_ID, F_SPMC, F_SPBH, 
+      F_GHSBH, F_JE, F_DISABLE, 
+      F_T1, F_T2, F_T3)
+    values (#{fId,jdbcType=VARCHAR}, #{fSpmc,jdbcType=VARCHAR}, #{fSpbh,jdbcType=VARCHAR}, 
+      #{fGhsbh,jdbcType=VARCHAR}, #{fJe,jdbcType=VARCHAR}, #{fDisable,jdbcType=VARCHAR}, 
+      #{fT1,jdbcType=VARCHAR}, #{fT2,jdbcType=VARCHAR}, #{fT3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.gools.pojo.po.GoolsPools" >
+    insert into gools_pools
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fId != null" >
+        F_ID,
+      </if>
+      <if test="fSpmc != null" >
+        F_SPMC,
+      </if>
+      <if test="fSpbh != null" >
+        F_SPBH,
+      </if>
+      <if test="fGhsbh != null" >
+        F_GHSBH,
+      </if>
+      <if test="fJe != null" >
+        F_JE,
+      </if>
+      <if test="fDisable != null" >
+        F_DISABLE,
+      </if>
+      <if test="fT1 != null" >
+        F_T1,
+      </if>
+      <if test="fT2 != null" >
+        F_T2,
+      </if>
+      <if test="fT3 != null" >
+        F_T3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fId != null" >
+        #{fId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpmc != null" >
+        #{fSpmc,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpbh != null" >
+        #{fSpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fGhsbh != null" >
+        #{fGhsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fJe != null" >
+        #{fJe,jdbcType=VARCHAR},
+      </if>
+      <if test="fDisable != null" >
+        #{fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="fT1 != null" >
+        #{fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="fT2 != null" >
+        #{fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="fT3 != null" >
+        #{fT3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.gools.pojo.po.GoolsPoolsExample" resultType="java.lang.Integer" >
+    select count(*) from gools_pools
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update gools_pools
+    <set >
+      <if test="record.fId != null" >
+        F_ID = #{record.fId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSpmc != null" >
+        F_SPMC = #{record.fSpmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSpbh != null" >
+        F_SPBH = #{record.fSpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fGhsbh != null" >
+        F_GHSBH = #{record.fGhsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJe != null" >
+        F_JE = #{record.fJe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDisable != null" >
+        F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT1 != null" >
+        F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT2 != null" >
+        F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fT3 != null" >
+        F_T3 = #{record.fT3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update gools_pools
+    set F_ID = #{record.fId,jdbcType=VARCHAR},
+      F_SPMC = #{record.fSpmc,jdbcType=VARCHAR},
+      F_SPBH = #{record.fSpbh,jdbcType=VARCHAR},
+      F_GHSBH = #{record.fGhsbh,jdbcType=VARCHAR},
+      F_JE = #{record.fJe,jdbcType=VARCHAR},
+      F_DISABLE = #{record.fDisable,jdbcType=VARCHAR},
+      F_T1 = #{record.fT1,jdbcType=VARCHAR},
+      F_T2 = #{record.fT2,jdbcType=VARCHAR},
+      F_T3 = #{record.fT3,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

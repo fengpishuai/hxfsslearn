@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.base.dao.SysSqlFilterMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.base.pojo.po.SysSqlFilter" >
+    <result column="F_PKEY" property="fPkey" jdbcType="VARCHAR" />
+    <result column="F_FUNC_ID" property="fFuncId" jdbcType="VARCHAR" />
+    <result column="F_NAME" property="fName" jdbcType="VARCHAR" />
+    <result column="F_SQL" property="fSql" jdbcType="VARCHAR" />
+    <result column="F_MS" property="fMs" jdbcType="VARCHAR" />
+    <result column="F_TYPE" property="fType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_PKEY, F_FUNC_ID, F_NAME, F_SQL, F_MS, F_TYPE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.base.pojo.po.SysSqlFilterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_sql_filter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.hlic.base.pojo.po.SysSqlFilterExample" >
+    delete from sys_sql_filter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.base.pojo.po.SysSqlFilter" >
+    insert into sys_sql_filter (F_PKEY, F_FUNC_ID, F_NAME, 
+      F_SQL, F_MS, F_TYPE)
+    values (#{fPkey,jdbcType=VARCHAR}, #{fFuncId,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, 
+      #{fSql,jdbcType=VARCHAR}, #{fMs,jdbcType=VARCHAR}, #{fType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.base.pojo.po.SysSqlFilter" >
+    insert into sys_sql_filter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        F_PKEY,
+      </if>
+      <if test="fFuncId != null" >
+        F_FUNC_ID,
+      </if>
+      <if test="fName != null" >
+        F_NAME,
+      </if>
+      <if test="fSql != null" >
+        F_SQL,
+      </if>
+      <if test="fMs != null" >
+        F_MS,
+      </if>
+      <if test="fType != null" >
+        F_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        #{fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fFuncId != null" >
+        #{fFuncId,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fSql != null" >
+        #{fSql,jdbcType=VARCHAR},
+      </if>
+      <if test="fMs != null" >
+        #{fMs,jdbcType=VARCHAR},
+      </if>
+      <if test="fType != null" >
+        #{fType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.base.pojo.po.SysSqlFilterExample" resultType="java.lang.Integer" >
+    select count(*) from sys_sql_filter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_sql_filter
+    <set >
+      <if test="record.fPkey != null" >
+        F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFuncId != null" >
+        F_FUNC_ID = #{record.fFuncId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fName != null" >
+        F_NAME = #{record.fName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSql != null" >
+        F_SQL = #{record.fSql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fMs != null" >
+        F_MS = #{record.fMs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fType != null" >
+        F_TYPE = #{record.fType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_sql_filter
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_FUNC_ID = #{record.fFuncId,jdbcType=VARCHAR},
+      F_NAME = #{record.fName,jdbcType=VARCHAR},
+      F_SQL = #{record.fSql,jdbcType=VARCHAR},
+      F_MS = #{record.fMs,jdbcType=VARCHAR},
+      F_TYPE = #{record.fType,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

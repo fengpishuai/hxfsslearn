@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlic.yycg.dao.mapper.ScTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.hlic.yycg.pojo.po.ScTask" >
+    <id column="F_PKEY" property="fPkey" jdbcType="VARCHAR" />
+    <result column="F_POOL_ID" property="fPoolId" jdbcType="VARCHAR" />
+    <result column="F_YEAR" property="fYear" jdbcType="VARCHAR" />
+    <result column="F_MONTH" property="fMonth" jdbcType="VARCHAR" />
+    <result column="F_FLOW_SN" property="fFlowSn" jdbcType="VARCHAR" />
+    <result column="F_NODE_ID" property="fNodeId" jdbcType="VARCHAR" />
+    <result column="F_SUBM_ORG" property="fSubmOrg" jdbcType="VARCHAR" />
+    <result column="F_SUBM_USER" property="fSubmUser" jdbcType="VARCHAR" />
+    <result column="F_BIZ_SUBTYPE" property="fBizSubtype" jdbcType="VARCHAR" />
+    <result column="F_DJLX" property="fDjlx" jdbcType="VARCHAR" />
+    <result column="F_EXPENSE_TYPE" property="fExpenseType" jdbcType="VARCHAR" />
+    <result column="F_BILL_ID" property="fBillId" jdbcType="VARCHAR" />
+    <result column="F_BILL_SUMMARY" property="fBillSummary" jdbcType="VARCHAR" />
+    <result column="F_BZ" property="fBz" jdbcType="VARCHAR" />
+    <result column="F_TOTAL_AMT" property="fTotalAmt" jdbcType="DOUBLE" />
+    <result column="F_PAY_AMT" property="fPayAmt" jdbcType="DOUBLE" />
+    <result column="F_OPT_UID" property="fOptUid" jdbcType="VARCHAR" />
+    <result column="F_OPT_UNAME" property="fOptUname" jdbcType="VARCHAR" />
+    <result column="F_OPT_ROLE" property="fOptRole" jdbcType="VARCHAR" />
+    <result column="F_STA_CRT" property="fStaCrt" jdbcType="VARCHAR" />
+    <result column="F_STA_IMAG" property="fStaImag" jdbcType="VARCHAR" />
+    <result column="F_STA_GATH" property="fStaGath" jdbcType="VARCHAR" />
+    <result column="F_STA_ENTR" property="fStaEntr" jdbcType="VARCHAR" />
+    <result column="F_STA_FDISP" property="fStaFdisp" jdbcType="VARCHAR" />
+    <result column="F_STA_FVEP" property="fStaFvep" jdbcType="VARCHAR" />
+    <result column="F_STA_SDISP" property="fStaSdisp" jdbcType="VARCHAR" />
+    <result column="F_STA_SVEP" property="fStaSvep" jdbcType="VARCHAR" />
+    <result column="F_STA_PAUSE" property="fStaPause" jdbcType="VARCHAR" />
+    <result column="F_TASK_INCOME" property="fTaskIncome" jdbcType="VARCHAR" />
+    <result column="F_CRT_TIME" property="fCrtTime" jdbcType="VARCHAR" />
+    <result column="F_ENTSC_TIME" property="fEntscTime" jdbcType="VARCHAR" />
+    <result column="F_FDISP_UID" property="fFdispUid" jdbcType="VARCHAR" />
+    <result column="F_FDISP_TIME" property="fFdispTime" jdbcType="VARCHAR" />
+    <result column="F_FVEP_UID" property="fFvepUid" jdbcType="VARCHAR" />
+    <result column="F_FVEP_TIME" property="fFvepTime" jdbcType="VARCHAR" />
+    <result column="F_SDISP_UID" property="fSdispUid" jdbcType="VARCHAR" />
+    <result column="F_SDISP_TIME" property="fSdispTime" jdbcType="VARCHAR" />
+    <result column="F_SVEP_UID" property="fSvepUid" jdbcType="VARCHAR" />
+    <result column="F_SVEP_TIME" property="fSvepTime" jdbcType="VARCHAR" />
+    <result column="F_PAY_TIME" property="fPayTime" jdbcType="VARCHAR" />
+    <result column="F_MODIFY_TIME" property="fModifyTime" jdbcType="VARCHAR" />
+    <result column="F_ATT_CNT" property="fAttCnt" jdbcType="INTEGER" />
+    <result column="F_INCOME_TYPE" property="fIncomeType" jdbcType="VARCHAR" />
+    <result column="F_PRIR_LEV" property="fPrirLev" jdbcType="INTEGER" />
+    <result column="F_CRDT_GRD" property="fCrdtGrd" jdbcType="VARCHAR" />
+    <result column="F_WARN_STA" property="fWarnSta" jdbcType="VARCHAR" />
+    <result column="F_FVEP_GRP" property="fFvepGrp" jdbcType="VARCHAR" />
+    <result column="F_SVEP_GRP" property="fSvepGrp" jdbcType="VARCHAR" />
+    <result column="F_ERP_HSZT" property="fErpHszt" jdbcType="VARCHAR" />
+    <result column="F_GYSHCS" property="fGyshcs" jdbcType="INTEGER" />
+    <result column="F_DJHS" property="fDjhs" jdbcType="INTEGER" />
+    <result column="F_JHRBH" property="fJhrbh" jdbcType="VARCHAR" />
+    <result column="F_JHRMC" property="fJhrmc" jdbcType="VARCHAR" />
+    <result column="F_JH_TIME" property="fJhTime" jdbcType="VARCHAR" />
+    <result column="F_STA_EXTRCT" property="fStaExtrct" jdbcType="VARCHAR" />
+    <result column="F_JSZS" property="fJszs" jdbcType="INTEGER" />
+    <result column="F_JHFPSJ" property="fJhfpsj" jdbcType="VARCHAR" />
+    <result column="F_YWLSH" property="fYwlsh" jdbcType="VARCHAR" />
+    <result column="F_SFDB" property="fSfdb" jdbcType="VARCHAR" />
+    <result column="F_SFGXSH" property="fSfgxsh" jdbcType="VARCHAR" />
+    <result column="F_DJZT" property="fDjzt" jdbcType="VARCHAR" />
+    <result column="F_URL" property="fUrl" jdbcType="VARCHAR" />
+    <result column="F_SFSPJS" property="fSfspjs" jdbcType="VARCHAR" />
+    <result column="F_KJPT_SUBMORG" property="fKjptSubmorg" jdbcType="VARCHAR" />
+    <result column="F_DJZT_GX" property="fDjztGx" jdbcType="VARCHAR" />
+    <result column="F_SPZT_GX" property="fSpztGx" jdbcType="VARCHAR" />
+    <result column="F_JSSJ" property="fJssj" jdbcType="VARCHAR" />
+    <result column="F_XGSJ" property="fXgsj" jdbcType="VARCHAR" />
+    <result column="F_CVT_KEY" property="fCvtKey" jdbcType="VARCHAR" />
+    <result column="F_SFYZP" property="fSfyzp" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    F_PKEY, F_POOL_ID, F_YEAR, F_MONTH, F_FLOW_SN, F_NODE_ID, F_SUBM_ORG, F_SUBM_USER, 
+    F_BIZ_SUBTYPE, F_DJLX, F_EXPENSE_TYPE, F_BILL_ID, F_BILL_SUMMARY, F_BZ, F_TOTAL_AMT, 
+    F_PAY_AMT, F_OPT_UID, F_OPT_UNAME, F_OPT_ROLE, F_STA_CRT, F_STA_IMAG, F_STA_GATH, 
+    F_STA_ENTR, F_STA_FDISP, F_STA_FVEP, F_STA_SDISP, F_STA_SVEP, F_STA_PAUSE, F_TASK_INCOME, 
+    F_CRT_TIME, F_ENTSC_TIME, F_FDISP_UID, F_FDISP_TIME, F_FVEP_UID, F_FVEP_TIME, F_SDISP_UID, 
+    F_SDISP_TIME, F_SVEP_UID, F_SVEP_TIME, F_PAY_TIME, F_MODIFY_TIME, F_ATT_CNT, F_INCOME_TYPE, 
+    F_PRIR_LEV, F_CRDT_GRD, F_WARN_STA, F_FVEP_GRP, F_SVEP_GRP, F_ERP_HSZT, F_GYSHCS, 
+    F_DJHS, F_JHRBH, F_JHRMC, F_JH_TIME, F_STA_EXTRCT, F_JSZS, F_JHFPSJ, F_YWLSH, F_SFDB, 
+    F_SFGXSH, F_DJZT, F_URL, F_SFSPJS, F_KJPT_SUBMORG, F_DJZT_GX, F_SPZT_GX, F_JSSJ, 
+    F_XGSJ, F_CVT_KEY, F_SFYZP
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hlic.yycg.pojo.po.ScTaskExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sc_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sc_task
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sc_task
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hlic.yycg.pojo.po.ScTaskExample" >
+    delete from sc_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hlic.yycg.pojo.po.ScTask" >
+    insert into sc_task (F_PKEY, F_POOL_ID, F_YEAR, 
+      F_MONTH, F_FLOW_SN, F_NODE_ID, 
+      F_SUBM_ORG, F_SUBM_USER, F_BIZ_SUBTYPE, 
+      F_DJLX, F_EXPENSE_TYPE, F_BILL_ID, 
+      F_BILL_SUMMARY, F_BZ, F_TOTAL_AMT, 
+      F_PAY_AMT, F_OPT_UID, F_OPT_UNAME, 
+      F_OPT_ROLE, F_STA_CRT, F_STA_IMAG, 
+      F_STA_GATH, F_STA_ENTR, F_STA_FDISP, 
+      F_STA_FVEP, F_STA_SDISP, F_STA_SVEP, 
+      F_STA_PAUSE, F_TASK_INCOME, F_CRT_TIME, 
+      F_ENTSC_TIME, F_FDISP_UID, F_FDISP_TIME, 
+      F_FVEP_UID, F_FVEP_TIME, F_SDISP_UID, 
+      F_SDISP_TIME, F_SVEP_UID, F_SVEP_TIME, 
+      F_PAY_TIME, F_MODIFY_TIME, F_ATT_CNT, 
+      F_INCOME_TYPE, F_PRIR_LEV, F_CRDT_GRD, 
+      F_WARN_STA, F_FVEP_GRP, F_SVEP_GRP, 
+      F_ERP_HSZT, F_GYSHCS, F_DJHS, 
+      F_JHRBH, F_JHRMC, F_JH_TIME, 
+      F_STA_EXTRCT, F_JSZS, F_JHFPSJ, 
+      F_YWLSH, F_SFDB, F_SFGXSH, 
+      F_DJZT, F_URL, F_SFSPJS, 
+      F_KJPT_SUBMORG, F_DJZT_GX, F_SPZT_GX, 
+      F_JSSJ, F_XGSJ, F_CVT_KEY, 
+      F_SFYZP)
+    values (#{fPkey,jdbcType=VARCHAR}, #{fPoolId,jdbcType=VARCHAR}, #{fYear,jdbcType=VARCHAR}, 
+      #{fMonth,jdbcType=VARCHAR}, #{fFlowSn,jdbcType=VARCHAR}, #{fNodeId,jdbcType=VARCHAR}, 
+      #{fSubmOrg,jdbcType=VARCHAR}, #{fSubmUser,jdbcType=VARCHAR}, #{fBizSubtype,jdbcType=VARCHAR}, 
+      #{fDjlx,jdbcType=VARCHAR}, #{fExpenseType,jdbcType=VARCHAR}, #{fBillId,jdbcType=VARCHAR}, 
+      #{fBillSummary,jdbcType=VARCHAR}, #{fBz,jdbcType=VARCHAR}, #{fTotalAmt,jdbcType=DOUBLE}, 
+      #{fPayAmt,jdbcType=DOUBLE}, #{fOptUid,jdbcType=VARCHAR}, #{fOptUname,jdbcType=VARCHAR}, 
+      #{fOptRole,jdbcType=VARCHAR}, #{fStaCrt,jdbcType=VARCHAR}, #{fStaImag,jdbcType=VARCHAR}, 
+      #{fStaGath,jdbcType=VARCHAR}, #{fStaEntr,jdbcType=VARCHAR}, #{fStaFdisp,jdbcType=VARCHAR}, 
+      #{fStaFvep,jdbcType=VARCHAR}, #{fStaSdisp,jdbcType=VARCHAR}, #{fStaSvep,jdbcType=VARCHAR}, 
+      #{fStaPause,jdbcType=VARCHAR}, #{fTaskIncome,jdbcType=VARCHAR}, #{fCrtTime,jdbcType=VARCHAR}, 
+      #{fEntscTime,jdbcType=VARCHAR}, #{fFdispUid,jdbcType=VARCHAR}, #{fFdispTime,jdbcType=VARCHAR}, 
+      #{fFvepUid,jdbcType=VARCHAR}, #{fFvepTime,jdbcType=VARCHAR}, #{fSdispUid,jdbcType=VARCHAR}, 
+      #{fSdispTime,jdbcType=VARCHAR}, #{fSvepUid,jdbcType=VARCHAR}, #{fSvepTime,jdbcType=VARCHAR}, 
+      #{fPayTime,jdbcType=VARCHAR}, #{fModifyTime,jdbcType=VARCHAR}, #{fAttCnt,jdbcType=INTEGER}, 
+      #{fIncomeType,jdbcType=VARCHAR}, #{fPrirLev,jdbcType=INTEGER}, #{fCrdtGrd,jdbcType=VARCHAR}, 
+      #{fWarnSta,jdbcType=VARCHAR}, #{fFvepGrp,jdbcType=VARCHAR}, #{fSvepGrp,jdbcType=VARCHAR}, 
+      #{fErpHszt,jdbcType=VARCHAR}, #{fGyshcs,jdbcType=INTEGER}, #{fDjhs,jdbcType=INTEGER}, 
+      #{fJhrbh,jdbcType=VARCHAR}, #{fJhrmc,jdbcType=VARCHAR}, #{fJhTime,jdbcType=VARCHAR}, 
+      #{fStaExtrct,jdbcType=VARCHAR}, #{fJszs,jdbcType=INTEGER}, #{fJhfpsj,jdbcType=VARCHAR}, 
+      #{fYwlsh,jdbcType=VARCHAR}, #{fSfdb,jdbcType=VARCHAR}, #{fSfgxsh,jdbcType=VARCHAR}, 
+      #{fDjzt,jdbcType=VARCHAR}, #{fUrl,jdbcType=VARCHAR}, #{fSfspjs,jdbcType=VARCHAR}, 
+      #{fKjptSubmorg,jdbcType=VARCHAR}, #{fDjztGx,jdbcType=VARCHAR}, #{fSpztGx,jdbcType=VARCHAR}, 
+      #{fJssj,jdbcType=VARCHAR}, #{fXgsj,jdbcType=VARCHAR}, #{fCvtKey,jdbcType=VARCHAR}, 
+      #{fSfyzp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hlic.yycg.pojo.po.ScTask" >
+    insert into sc_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        F_PKEY,
+      </if>
+      <if test="fPoolId != null" >
+        F_POOL_ID,
+      </if>
+      <if test="fYear != null" >
+        F_YEAR,
+      </if>
+      <if test="fMonth != null" >
+        F_MONTH,
+      </if>
+      <if test="fFlowSn != null" >
+        F_FLOW_SN,
+      </if>
+      <if test="fNodeId != null" >
+        F_NODE_ID,
+      </if>
+      <if test="fSubmOrg != null" >
+        F_SUBM_ORG,
+      </if>
+      <if test="fSubmUser != null" >
+        F_SUBM_USER,
+      </if>
+      <if test="fBizSubtype != null" >
+        F_BIZ_SUBTYPE,
+      </if>
+      <if test="fDjlx != null" >
+        F_DJLX,
+      </if>
+      <if test="fExpenseType != null" >
+        F_EXPENSE_TYPE,
+      </if>
+      <if test="fBillId != null" >
+        F_BILL_ID,
+      </if>
+      <if test="fBillSummary != null" >
+        F_BILL_SUMMARY,
+      </if>
+      <if test="fBz != null" >
+        F_BZ,
+      </if>
+      <if test="fTotalAmt != null" >
+        F_TOTAL_AMT,
+      </if>
+      <if test="fPayAmt != null" >
+        F_PAY_AMT,
+      </if>
+      <if test="fOptUid != null" >
+        F_OPT_UID,
+      </if>
+      <if test="fOptUname != null" >
+        F_OPT_UNAME,
+      </if>
+      <if test="fOptRole != null" >
+        F_OPT_ROLE,
+      </if>
+      <if test="fStaCrt != null" >
+        F_STA_CRT,
+      </if>
+      <if test="fStaImag != null" >
+        F_STA_IMAG,
+      </if>
+      <if test="fStaGath != null" >
+        F_STA_GATH,
+      </if>
+      <if test="fStaEntr != null" >
+        F_STA_ENTR,
+      </if>
+      <if test="fStaFdisp != null" >
+        F_STA_FDISP,
+      </if>
+      <if test="fStaFvep != null" >
+        F_STA_FVEP,
+      </if>
+      <if test="fStaSdisp != null" >
+        F_STA_SDISP,
+      </if>
+      <if test="fStaSvep != null" >
+        F_STA_SVEP,
+      </if>
+      <if test="fStaPause != null" >
+        F_STA_PAUSE,
+      </if>
+      <if test="fTaskIncome != null" >
+        F_TASK_INCOME,
+      </if>
+      <if test="fCrtTime != null" >
+        F_CRT_TIME,
+      </if>
+      <if test="fEntscTime != null" >
+        F_ENTSC_TIME,
+      </if>
+      <if test="fFdispUid != null" >
+        F_FDISP_UID,
+      </if>
+      <if test="fFdispTime != null" >
+        F_FDISP_TIME,
+      </if>
+      <if test="fFvepUid != null" >
+        F_FVEP_UID,
+      </if>
+      <if test="fFvepTime != null" >
+        F_FVEP_TIME,
+      </if>
+      <if test="fSdispUid != null" >
+        F_SDISP_UID,
+      </if>
+      <if test="fSdispTime != null" >
+        F_SDISP_TIME,
+      </if>
+      <if test="fSvepUid != null" >
+        F_SVEP_UID,
+      </if>
+      <if test="fSvepTime != null" >
+        F_SVEP_TIME,
+      </if>
+      <if test="fPayTime != null" >
+        F_PAY_TIME,
+      </if>
+      <if test="fModifyTime != null" >
+        F_MODIFY_TIME,
+      </if>
+      <if test="fAttCnt != null" >
+        F_ATT_CNT,
+      </if>
+      <if test="fIncomeType != null" >
+        F_INCOME_TYPE,
+      </if>
+      <if test="fPrirLev != null" >
+        F_PRIR_LEV,
+      </if>
+      <if test="fCrdtGrd != null" >
+        F_CRDT_GRD,
+      </if>
+      <if test="fWarnSta != null" >
+        F_WARN_STA,
+      </if>
+      <if test="fFvepGrp != null" >
+        F_FVEP_GRP,
+      </if>
+      <if test="fSvepGrp != null" >
+        F_SVEP_GRP,
+      </if>
+      <if test="fErpHszt != null" >
+        F_ERP_HSZT,
+      </if>
+      <if test="fGyshcs != null" >
+        F_GYSHCS,
+      </if>
+      <if test="fDjhs != null" >
+        F_DJHS,
+      </if>
+      <if test="fJhrbh != null" >
+        F_JHRBH,
+      </if>
+      <if test="fJhrmc != null" >
+        F_JHRMC,
+      </if>
+      <if test="fJhTime != null" >
+        F_JH_TIME,
+      </if>
+      <if test="fStaExtrct != null" >
+        F_STA_EXTRCT,
+      </if>
+      <if test="fJszs != null" >
+        F_JSZS,
+      </if>
+      <if test="fJhfpsj != null" >
+        F_JHFPSJ,
+      </if>
+      <if test="fYwlsh != null" >
+        F_YWLSH,
+      </if>
+      <if test="fSfdb != null" >
+        F_SFDB,
+      </if>
+      <if test="fSfgxsh != null" >
+        F_SFGXSH,
+      </if>
+      <if test="fDjzt != null" >
+        F_DJZT,
+      </if>
+      <if test="fUrl != null" >
+        F_URL,
+      </if>
+      <if test="fSfspjs != null" >
+        F_SFSPJS,
+      </if>
+      <if test="fKjptSubmorg != null" >
+        F_KJPT_SUBMORG,
+      </if>
+      <if test="fDjztGx != null" >
+        F_DJZT_GX,
+      </if>
+      <if test="fSpztGx != null" >
+        F_SPZT_GX,
+      </if>
+      <if test="fJssj != null" >
+        F_JSSJ,
+      </if>
+      <if test="fXgsj != null" >
+        F_XGSJ,
+      </if>
+      <if test="fCvtKey != null" >
+        F_CVT_KEY,
+      </if>
+      <if test="fSfyzp != null" >
+        F_SFYZP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fPkey != null" >
+        #{fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fPoolId != null" >
+        #{fPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="fYear != null" >
+        #{fYear,jdbcType=VARCHAR},
+      </if>
+      <if test="fMonth != null" >
+        #{fMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="fFlowSn != null" >
+        #{fFlowSn,jdbcType=VARCHAR},
+      </if>
+      <if test="fNodeId != null" >
+        #{fNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSubmOrg != null" >
+        #{fSubmOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="fSubmUser != null" >
+        #{fSubmUser,jdbcType=VARCHAR},
+      </if>
+      <if test="fBizSubtype != null" >
+        #{fBizSubtype,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjlx != null" >
+        #{fDjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fExpenseType != null" >
+        #{fExpenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillId != null" >
+        #{fBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillSummary != null" >
+        #{fBillSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="fBz != null" >
+        #{fBz,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalAmt != null" >
+        #{fTotalAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="fPayAmt != null" >
+        #{fPayAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="fOptUid != null" >
+        #{fOptUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fOptUname != null" >
+        #{fOptUname,jdbcType=VARCHAR},
+      </if>
+      <if test="fOptRole != null" >
+        #{fOptRole,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaCrt != null" >
+        #{fStaCrt,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaImag != null" >
+        #{fStaImag,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaGath != null" >
+        #{fStaGath,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaEntr != null" >
+        #{fStaEntr,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaFdisp != null" >
+        #{fStaFdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaFvep != null" >
+        #{fStaFvep,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaSdisp != null" >
+        #{fStaSdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaSvep != null" >
+        #{fStaSvep,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaPause != null" >
+        #{fStaPause,jdbcType=VARCHAR},
+      </if>
+      <if test="fTaskIncome != null" >
+        #{fTaskIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="fCrtTime != null" >
+        #{fCrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fEntscTime != null" >
+        #{fEntscTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fFdispUid != null" >
+        #{fFdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fFdispTime != null" >
+        #{fFdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepUid != null" >
+        #{fFvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepTime != null" >
+        #{fFvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fSdispUid != null" >
+        #{fSdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fSdispTime != null" >
+        #{fSdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepUid != null" >
+        #{fSvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepTime != null" >
+        #{fSvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fPayTime != null" >
+        #{fPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fModifyTime != null" >
+        #{fModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttCnt != null" >
+        #{fAttCnt,jdbcType=INTEGER},
+      </if>
+      <if test="fIncomeType != null" >
+        #{fIncomeType,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrirLev != null" >
+        #{fPrirLev,jdbcType=INTEGER},
+      </if>
+      <if test="fCrdtGrd != null" >
+        #{fCrdtGrd,jdbcType=VARCHAR},
+      </if>
+      <if test="fWarnSta != null" >
+        #{fWarnSta,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepGrp != null" >
+        #{fFvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepGrp != null" >
+        #{fSvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="fErpHszt != null" >
+        #{fErpHszt,jdbcType=VARCHAR},
+      </if>
+      <if test="fGyshcs != null" >
+        #{fGyshcs,jdbcType=INTEGER},
+      </if>
+      <if test="fDjhs != null" >
+        #{fDjhs,jdbcType=INTEGER},
+      </if>
+      <if test="fJhrbh != null" >
+        #{fJhrbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fJhrmc != null" >
+        #{fJhrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="fJhTime != null" >
+        #{fJhTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaExtrct != null" >
+        #{fStaExtrct,jdbcType=VARCHAR},
+      </if>
+      <if test="fJszs != null" >
+        #{fJszs,jdbcType=INTEGER},
+      </if>
+      <if test="fJhfpsj != null" >
+        #{fJhfpsj,jdbcType=VARCHAR},
+      </if>
+      <if test="fYwlsh != null" >
+        #{fYwlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfdb != null" >
+        #{fSfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfgxsh != null" >
+        #{fSfgxsh,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjzt != null" >
+        #{fDjzt,jdbcType=VARCHAR},
+      </if>
+      <if test="fUrl != null" >
+        #{fUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfspjs != null" >
+        #{fSfspjs,jdbcType=VARCHAR},
+      </if>
+      <if test="fKjptSubmorg != null" >
+        #{fKjptSubmorg,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjztGx != null" >
+        #{fDjztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpztGx != null" >
+        #{fSpztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="fJssj != null" >
+        #{fJssj,jdbcType=VARCHAR},
+      </if>
+      <if test="fXgsj != null" >
+        #{fXgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="fCvtKey != null" >
+        #{fCvtKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfyzp != null" >
+        #{fSfyzp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hlic.yycg.pojo.po.ScTaskExample" resultType="java.lang.Integer" >
+    select count(*) from sc_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sc_task
+    <set >
+      <if test="record.fPkey != null" >
+        F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fPoolId != null" >
+        F_POOL_ID = #{record.fPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fYear != null" >
+        F_YEAR = #{record.fYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fMonth != null" >
+        F_MONTH = #{record.fMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFlowSn != null" >
+        F_FLOW_SN = #{record.fFlowSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fNodeId != null" >
+        F_NODE_ID = #{record.fNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSubmOrg != null" >
+        F_SUBM_ORG = #{record.fSubmOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSubmUser != null" >
+        F_SUBM_USER = #{record.fSubmUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBizSubtype != null" >
+        F_BIZ_SUBTYPE = #{record.fBizSubtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDjlx != null" >
+        F_DJLX = #{record.fDjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fExpenseType != null" >
+        F_EXPENSE_TYPE = #{record.fExpenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillId != null" >
+        F_BILL_ID = #{record.fBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBillSummary != null" >
+        F_BILL_SUMMARY = #{record.fBillSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fBz != null" >
+        F_BZ = #{record.fBz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fTotalAmt != null" >
+        F_TOTAL_AMT = #{record.fTotalAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="record.fPayAmt != null" >
+        F_PAY_AMT = #{record.fPayAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="record.fOptUid != null" >
+        F_OPT_UID = #{record.fOptUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fOptUname != null" >
+        F_OPT_UNAME = #{record.fOptUname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fOptRole != null" >
+        F_OPT_ROLE = #{record.fOptRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaCrt != null" >
+        F_STA_CRT = #{record.fStaCrt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaImag != null" >
+        F_STA_IMAG = #{record.fStaImag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaGath != null" >
+        F_STA_GATH = #{record.fStaGath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaEntr != null" >
+        F_STA_ENTR = #{record.fStaEntr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaFdisp != null" >
+        F_STA_FDISP = #{record.fStaFdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaFvep != null" >
+        F_STA_FVEP = #{record.fStaFvep,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaSdisp != null" >
+        F_STA_SDISP = #{record.fStaSdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaSvep != null" >
+        F_STA_SVEP = #{record.fStaSvep,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaPause != null" >
+        F_STA_PAUSE = #{record.fStaPause,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fTaskIncome != null" >
+        F_TASK_INCOME = #{record.fTaskIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fCrtTime != null" >
+        F_CRT_TIME = #{record.fCrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fEntscTime != null" >
+        F_ENTSC_TIME = #{record.fEntscTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFdispUid != null" >
+        F_FDISP_UID = #{record.fFdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFdispTime != null" >
+        F_FDISP_TIME = #{record.fFdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFvepUid != null" >
+        F_FVEP_UID = #{record.fFvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFvepTime != null" >
+        F_FVEP_TIME = #{record.fFvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSdispUid != null" >
+        F_SDISP_UID = #{record.fSdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSdispTime != null" >
+        F_SDISP_TIME = #{record.fSdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSvepUid != null" >
+        F_SVEP_UID = #{record.fSvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSvepTime != null" >
+        F_SVEP_TIME = #{record.fSvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fPayTime != null" >
+        F_PAY_TIME = #{record.fPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fModifyTime != null" >
+        F_MODIFY_TIME = #{record.fModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fAttCnt != null" >
+        F_ATT_CNT = #{record.fAttCnt,jdbcType=INTEGER},
+      </if>
+      <if test="record.fIncomeType != null" >
+        F_INCOME_TYPE = #{record.fIncomeType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fPrirLev != null" >
+        F_PRIR_LEV = #{record.fPrirLev,jdbcType=INTEGER},
+      </if>
+      <if test="record.fCrdtGrd != null" >
+        F_CRDT_GRD = #{record.fCrdtGrd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fWarnSta != null" >
+        F_WARN_STA = #{record.fWarnSta,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fFvepGrp != null" >
+        F_FVEP_GRP = #{record.fFvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSvepGrp != null" >
+        F_SVEP_GRP = #{record.fSvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fErpHszt != null" >
+        F_ERP_HSZT = #{record.fErpHszt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fGyshcs != null" >
+        F_GYSHCS = #{record.fGyshcs,jdbcType=INTEGER},
+      </if>
+      <if test="record.fDjhs != null" >
+        F_DJHS = #{record.fDjhs,jdbcType=INTEGER},
+      </if>
+      <if test="record.fJhrbh != null" >
+        F_JHRBH = #{record.fJhrbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJhrmc != null" >
+        F_JHRMC = #{record.fJhrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJhTime != null" >
+        F_JH_TIME = #{record.fJhTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStaExtrct != null" >
+        F_STA_EXTRCT = #{record.fStaExtrct,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJszs != null" >
+        F_JSZS = #{record.fJszs,jdbcType=INTEGER},
+      </if>
+      <if test="record.fJhfpsj != null" >
+        F_JHFPSJ = #{record.fJhfpsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fYwlsh != null" >
+        F_YWLSH = #{record.fYwlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSfdb != null" >
+        F_SFDB = #{record.fSfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSfgxsh != null" >
+        F_SFGXSH = #{record.fSfgxsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDjzt != null" >
+        F_DJZT = #{record.fDjzt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fUrl != null" >
+        F_URL = #{record.fUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSfspjs != null" >
+        F_SFSPJS = #{record.fSfspjs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fKjptSubmorg != null" >
+        F_KJPT_SUBMORG = #{record.fKjptSubmorg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fDjztGx != null" >
+        F_DJZT_GX = #{record.fDjztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSpztGx != null" >
+        F_SPZT_GX = #{record.fSpztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fJssj != null" >
+        F_JSSJ = #{record.fJssj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fXgsj != null" >
+        F_XGSJ = #{record.fXgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fCvtKey != null" >
+        F_CVT_KEY = #{record.fCvtKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fSfyzp != null" >
+        F_SFYZP = #{record.fSfyzp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sc_task
+    set F_PKEY = #{record.fPkey,jdbcType=VARCHAR},
+      F_POOL_ID = #{record.fPoolId,jdbcType=VARCHAR},
+      F_YEAR = #{record.fYear,jdbcType=VARCHAR},
+      F_MONTH = #{record.fMonth,jdbcType=VARCHAR},
+      F_FLOW_SN = #{record.fFlowSn,jdbcType=VARCHAR},
+      F_NODE_ID = #{record.fNodeId,jdbcType=VARCHAR},
+      F_SUBM_ORG = #{record.fSubmOrg,jdbcType=VARCHAR},
+      F_SUBM_USER = #{record.fSubmUser,jdbcType=VARCHAR},
+      F_BIZ_SUBTYPE = #{record.fBizSubtype,jdbcType=VARCHAR},
+      F_DJLX = #{record.fDjlx,jdbcType=VARCHAR},
+      F_EXPENSE_TYPE = #{record.fExpenseType,jdbcType=VARCHAR},
+      F_BILL_ID = #{record.fBillId,jdbcType=VARCHAR},
+      F_BILL_SUMMARY = #{record.fBillSummary,jdbcType=VARCHAR},
+      F_BZ = #{record.fBz,jdbcType=VARCHAR},
+      F_TOTAL_AMT = #{record.fTotalAmt,jdbcType=DOUBLE},
+      F_PAY_AMT = #{record.fPayAmt,jdbcType=DOUBLE},
+      F_OPT_UID = #{record.fOptUid,jdbcType=VARCHAR},
+      F_OPT_UNAME = #{record.fOptUname,jdbcType=VARCHAR},
+      F_OPT_ROLE = #{record.fOptRole,jdbcType=VARCHAR},
+      F_STA_CRT = #{record.fStaCrt,jdbcType=VARCHAR},
+      F_STA_IMAG = #{record.fStaImag,jdbcType=VARCHAR},
+      F_STA_GATH = #{record.fStaGath,jdbcType=VARCHAR},
+      F_STA_ENTR = #{record.fStaEntr,jdbcType=VARCHAR},
+      F_STA_FDISP = #{record.fStaFdisp,jdbcType=VARCHAR},
+      F_STA_FVEP = #{record.fStaFvep,jdbcType=VARCHAR},
+      F_STA_SDISP = #{record.fStaSdisp,jdbcType=VARCHAR},
+      F_STA_SVEP = #{record.fStaSvep,jdbcType=VARCHAR},
+      F_STA_PAUSE = #{record.fStaPause,jdbcType=VARCHAR},
+      F_TASK_INCOME = #{record.fTaskIncome,jdbcType=VARCHAR},
+      F_CRT_TIME = #{record.fCrtTime,jdbcType=VARCHAR},
+      F_ENTSC_TIME = #{record.fEntscTime,jdbcType=VARCHAR},
+      F_FDISP_UID = #{record.fFdispUid,jdbcType=VARCHAR},
+      F_FDISP_TIME = #{record.fFdispTime,jdbcType=VARCHAR},
+      F_FVEP_UID = #{record.fFvepUid,jdbcType=VARCHAR},
+      F_FVEP_TIME = #{record.fFvepTime,jdbcType=VARCHAR},
+      F_SDISP_UID = #{record.fSdispUid,jdbcType=VARCHAR},
+      F_SDISP_TIME = #{record.fSdispTime,jdbcType=VARCHAR},
+      F_SVEP_UID = #{record.fSvepUid,jdbcType=VARCHAR},
+      F_SVEP_TIME = #{record.fSvepTime,jdbcType=VARCHAR},
+      F_PAY_TIME = #{record.fPayTime,jdbcType=VARCHAR},
+      F_MODIFY_TIME = #{record.fModifyTime,jdbcType=VARCHAR},
+      F_ATT_CNT = #{record.fAttCnt,jdbcType=INTEGER},
+      F_INCOME_TYPE = #{record.fIncomeType,jdbcType=VARCHAR},
+      F_PRIR_LEV = #{record.fPrirLev,jdbcType=INTEGER},
+      F_CRDT_GRD = #{record.fCrdtGrd,jdbcType=VARCHAR},
+      F_WARN_STA = #{record.fWarnSta,jdbcType=VARCHAR},
+      F_FVEP_GRP = #{record.fFvepGrp,jdbcType=VARCHAR},
+      F_SVEP_GRP = #{record.fSvepGrp,jdbcType=VARCHAR},
+      F_ERP_HSZT = #{record.fErpHszt,jdbcType=VARCHAR},
+      F_GYSHCS = #{record.fGyshcs,jdbcType=INTEGER},
+      F_DJHS = #{record.fDjhs,jdbcType=INTEGER},
+      F_JHRBH = #{record.fJhrbh,jdbcType=VARCHAR},
+      F_JHRMC = #{record.fJhrmc,jdbcType=VARCHAR},
+      F_JH_TIME = #{record.fJhTime,jdbcType=VARCHAR},
+      F_STA_EXTRCT = #{record.fStaExtrct,jdbcType=VARCHAR},
+      F_JSZS = #{record.fJszs,jdbcType=INTEGER},
+      F_JHFPSJ = #{record.fJhfpsj,jdbcType=VARCHAR},
+      F_YWLSH = #{record.fYwlsh,jdbcType=VARCHAR},
+      F_SFDB = #{record.fSfdb,jdbcType=VARCHAR},
+      F_SFGXSH = #{record.fSfgxsh,jdbcType=VARCHAR},
+      F_DJZT = #{record.fDjzt,jdbcType=VARCHAR},
+      F_URL = #{record.fUrl,jdbcType=VARCHAR},
+      F_SFSPJS = #{record.fSfspjs,jdbcType=VARCHAR},
+      F_KJPT_SUBMORG = #{record.fKjptSubmorg,jdbcType=VARCHAR},
+      F_DJZT_GX = #{record.fDjztGx,jdbcType=VARCHAR},
+      F_SPZT_GX = #{record.fSpztGx,jdbcType=VARCHAR},
+      F_JSSJ = #{record.fJssj,jdbcType=VARCHAR},
+      F_XGSJ = #{record.fXgsj,jdbcType=VARCHAR},
+      F_CVT_KEY = #{record.fCvtKey,jdbcType=VARCHAR},
+      F_SFYZP = #{record.fSfyzp,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hlic.yycg.pojo.po.ScTask" >
+    update sc_task
+    <set >
+      <if test="fPoolId != null" >
+        F_POOL_ID = #{fPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="fYear != null" >
+        F_YEAR = #{fYear,jdbcType=VARCHAR},
+      </if>
+      <if test="fMonth != null" >
+        F_MONTH = #{fMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="fFlowSn != null" >
+        F_FLOW_SN = #{fFlowSn,jdbcType=VARCHAR},
+      </if>
+      <if test="fNodeId != null" >
+        F_NODE_ID = #{fNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSubmOrg != null" >
+        F_SUBM_ORG = #{fSubmOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="fSubmUser != null" >
+        F_SUBM_USER = #{fSubmUser,jdbcType=VARCHAR},
+      </if>
+      <if test="fBizSubtype != null" >
+        F_BIZ_SUBTYPE = #{fBizSubtype,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjlx != null" >
+        F_DJLX = #{fDjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fExpenseType != null" >
+        F_EXPENSE_TYPE = #{fExpenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillId != null" >
+        F_BILL_ID = #{fBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="fBillSummary != null" >
+        F_BILL_SUMMARY = #{fBillSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="fBz != null" >
+        F_BZ = #{fBz,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalAmt != null" >
+        F_TOTAL_AMT = #{fTotalAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="fPayAmt != null" >
+        F_PAY_AMT = #{fPayAmt,jdbcType=DOUBLE},
+      </if>
+      <if test="fOptUid != null" >
+        F_OPT_UID = #{fOptUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fOptUname != null" >
+        F_OPT_UNAME = #{fOptUname,jdbcType=VARCHAR},
+      </if>
+      <if test="fOptRole != null" >
+        F_OPT_ROLE = #{fOptRole,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaCrt != null" >
+        F_STA_CRT = #{fStaCrt,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaImag != null" >
+        F_STA_IMAG = #{fStaImag,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaGath != null" >
+        F_STA_GATH = #{fStaGath,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaEntr != null" >
+        F_STA_ENTR = #{fStaEntr,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaFdisp != null" >
+        F_STA_FDISP = #{fStaFdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaFvep != null" >
+        F_STA_FVEP = #{fStaFvep,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaSdisp != null" >
+        F_STA_SDISP = #{fStaSdisp,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaSvep != null" >
+        F_STA_SVEP = #{fStaSvep,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaPause != null" >
+        F_STA_PAUSE = #{fStaPause,jdbcType=VARCHAR},
+      </if>
+      <if test="fTaskIncome != null" >
+        F_TASK_INCOME = #{fTaskIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="fCrtTime != null" >
+        F_CRT_TIME = #{fCrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fEntscTime != null" >
+        F_ENTSC_TIME = #{fEntscTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fFdispUid != null" >
+        F_FDISP_UID = #{fFdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fFdispTime != null" >
+        F_FDISP_TIME = #{fFdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepUid != null" >
+        F_FVEP_UID = #{fFvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepTime != null" >
+        F_FVEP_TIME = #{fFvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fSdispUid != null" >
+        F_SDISP_UID = #{fSdispUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fSdispTime != null" >
+        F_SDISP_TIME = #{fSdispTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepUid != null" >
+        F_SVEP_UID = #{fSvepUid,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepTime != null" >
+        F_SVEP_TIME = #{fSvepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fPayTime != null" >
+        F_PAY_TIME = #{fPayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fModifyTime != null" >
+        F_MODIFY_TIME = #{fModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fAttCnt != null" >
+        F_ATT_CNT = #{fAttCnt,jdbcType=INTEGER},
+      </if>
+      <if test="fIncomeType != null" >
+        F_INCOME_TYPE = #{fIncomeType,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrirLev != null" >
+        F_PRIR_LEV = #{fPrirLev,jdbcType=INTEGER},
+      </if>
+      <if test="fCrdtGrd != null" >
+        F_CRDT_GRD = #{fCrdtGrd,jdbcType=VARCHAR},
+      </if>
+      <if test="fWarnSta != null" >
+        F_WARN_STA = #{fWarnSta,jdbcType=VARCHAR},
+      </if>
+      <if test="fFvepGrp != null" >
+        F_FVEP_GRP = #{fFvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="fSvepGrp != null" >
+        F_SVEP_GRP = #{fSvepGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="fErpHszt != null" >
+        F_ERP_HSZT = #{fErpHszt,jdbcType=VARCHAR},
+      </if>
+      <if test="fGyshcs != null" >
+        F_GYSHCS = #{fGyshcs,jdbcType=INTEGER},
+      </if>
+      <if test="fDjhs != null" >
+        F_DJHS = #{fDjhs,jdbcType=INTEGER},
+      </if>
+      <if test="fJhrbh != null" >
+        F_JHRBH = #{fJhrbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fJhrmc != null" >
+        F_JHRMC = #{fJhrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="fJhTime != null" >
+        F_JH_TIME = #{fJhTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaExtrct != null" >
+        F_STA_EXTRCT = #{fStaExtrct,jdbcType=VARCHAR},
+      </if>
+      <if test="fJszs != null" >
+        F_JSZS = #{fJszs,jdbcType=INTEGER},
+      </if>
+      <if test="fJhfpsj != null" >
+        F_JHFPSJ = #{fJhfpsj,jdbcType=VARCHAR},
+      </if>
+      <if test="fYwlsh != null" >
+        F_YWLSH = #{fYwlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfdb != null" >
+        F_SFDB = #{fSfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfgxsh != null" >
+        F_SFGXSH = #{fSfgxsh,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjzt != null" >
+        F_DJZT = #{fDjzt,jdbcType=VARCHAR},
+      </if>
+      <if test="fUrl != null" >
+        F_URL = #{fUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfspjs != null" >
+        F_SFSPJS = #{fSfspjs,jdbcType=VARCHAR},
+      </if>
+      <if test="fKjptSubmorg != null" >
+        F_KJPT_SUBMORG = #{fKjptSubmorg,jdbcType=VARCHAR},
+      </if>
+      <if test="fDjztGx != null" >
+        F_DJZT_GX = #{fDjztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpztGx != null" >
+        F_SPZT_GX = #{fSpztGx,jdbcType=VARCHAR},
+      </if>
+      <if test="fJssj != null" >
+        F_JSSJ = #{fJssj,jdbcType=VARCHAR},
+      </if>
+      <if test="fXgsj != null" >
+        F_XGSJ = #{fXgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="fCvtKey != null" >
+        F_CVT_KEY = #{fCvtKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fSfyzp != null" >
+        F_SFYZP = #{fSfyzp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hlic.yycg.pojo.po.ScTask" >
+    update sc_task
+    set F_POOL_ID = #{fPoolId,jdbcType=VARCHAR},
+      F_YEAR = #{fYear,jdbcType=VARCHAR},
+      F_MONTH = #{fMonth,jdbcType=VARCHAR},
+      F_FLOW_SN = #{fFlowSn,jdbcType=VARCHAR},
+      F_NODE_ID = #{fNodeId,jdbcType=VARCHAR},
+      F_SUBM_ORG = #{fSubmOrg,jdbcType=VARCHAR},
+      F_SUBM_USER = #{fSubmUser,jdbcType=VARCHAR},
+      F_BIZ_SUBTYPE = #{fBizSubtype,jdbcType=VARCHAR},
+      F_DJLX = #{fDjlx,jdbcType=VARCHAR},
+      F_EXPENSE_TYPE = #{fExpenseType,jdbcType=VARCHAR},
+      F_BILL_ID = #{fBillId,jdbcType=VARCHAR},
+      F_BILL_SUMMARY = #{fBillSummary,jdbcType=VARCHAR},
+      F_BZ = #{fBz,jdbcType=VARCHAR},
+      F_TOTAL_AMT = #{fTotalAmt,jdbcType=DOUBLE},
+      F_PAY_AMT = #{fPayAmt,jdbcType=DOUBLE},
+      F_OPT_UID = #{fOptUid,jdbcType=VARCHAR},
+      F_OPT_UNAME = #{fOptUname,jdbcType=VARCHAR},
+      F_OPT_ROLE = #{fOptRole,jdbcType=VARCHAR},
+      F_STA_CRT = #{fStaCrt,jdbcType=VARCHAR},
+      F_STA_IMAG = #{fStaImag,jdbcType=VARCHAR},
+      F_STA_GATH = #{fStaGath,jdbcType=VARCHAR},
+      F_STA_ENTR = #{fStaEntr,jdbcType=VARCHAR},
+      F_STA_FDISP = #{fStaFdisp,jdbcType=VARCHAR},
+      F_STA_FVEP = #{fStaFvep,jdbcType=VARCHAR},
+      F_STA_SDISP = #{fStaSdisp,jdbcType=VARCHAR},
+      F_STA_SVEP = #{fStaSvep,jdbcType=VARCHAR},
+      F_STA_PAUSE = #{fStaPause,jdbcType=VARCHAR},
+      F_TASK_INCOME = #{fTaskIncome,jdbcType=VARCHAR},
+      F_CRT_TIME = #{fCrtTime,jdbcType=VARCHAR},
+      F_ENTSC_TIME = #{fEntscTime,jdbcType=VARCHAR},
+      F_FDISP_UID = #{fFdispUid,jdbcType=VARCHAR},
+      F_FDISP_TIME = #{fFdispTime,jdbcType=VARCHAR},
+      F_FVEP_UID = #{fFvepUid,jdbcType=VARCHAR},
+      F_FVEP_TIME = #{fFvepTime,jdbcType=VARCHAR},
+      F_SDISP_UID = #{fSdispUid,jdbcType=VARCHAR},
+      F_SDISP_TIME = #{fSdispTime,jdbcType=VARCHAR},
+      F_SVEP_UID = #{fSvepUid,jdbcType=VARCHAR},
+      F_SVEP_TIME = #{fSvepTime,jdbcType=VARCHAR},
+      F_PAY_TIME = #{fPayTime,jdbcType=VARCHAR},
+      F_MODIFY_TIME = #{fModifyTime,jdbcType=VARCHAR},
+      F_ATT_CNT = #{fAttCnt,jdbcType=INTEGER},
+      F_INCOME_TYPE = #{fIncomeType,jdbcType=VARCHAR},
+      F_PRIR_LEV = #{fPrirLev,jdbcType=INTEGER},
+      F_CRDT_GRD = #{fCrdtGrd,jdbcType=VARCHAR},
+      F_WARN_STA = #{fWarnSta,jdbcType=VARCHAR},
+      F_FVEP_GRP = #{fFvepGrp,jdbcType=VARCHAR},
+      F_SVEP_GRP = #{fSvepGrp,jdbcType=VARCHAR},
+      F_ERP_HSZT = #{fErpHszt,jdbcType=VARCHAR},
+      F_GYSHCS = #{fGyshcs,jdbcType=INTEGER},
+      F_DJHS = #{fDjhs,jdbcType=INTEGER},
+      F_JHRBH = #{fJhrbh,jdbcType=VARCHAR},
+      F_JHRMC = #{fJhrmc,jdbcType=VARCHAR},
+      F_JH_TIME = #{fJhTime,jdbcType=VARCHAR},
+      F_STA_EXTRCT = #{fStaExtrct,jdbcType=VARCHAR},
+      F_JSZS = #{fJszs,jdbcType=INTEGER},
+      F_JHFPSJ = #{fJhfpsj,jdbcType=VARCHAR},
+      F_YWLSH = #{fYwlsh,jdbcType=VARCHAR},
+      F_SFDB = #{fSfdb,jdbcType=VARCHAR},
+      F_SFGXSH = #{fSfgxsh,jdbcType=VARCHAR},
+      F_DJZT = #{fDjzt,jdbcType=VARCHAR},
+      F_URL = #{fUrl,jdbcType=VARCHAR},
+      F_SFSPJS = #{fSfspjs,jdbcType=VARCHAR},
+      F_KJPT_SUBMORG = #{fKjptSubmorg,jdbcType=VARCHAR},
+      F_DJZT_GX = #{fDjztGx,jdbcType=VARCHAR},
+      F_SPZT_GX = #{fSpztGx,jdbcType=VARCHAR},
+      F_JSSJ = #{fJssj,jdbcType=VARCHAR},
+      F_XGSJ = #{fXgsj,jdbcType=VARCHAR},
+      F_CVT_KEY = #{fCvtKey,jdbcType=VARCHAR},
+      F_SFYZP = #{fSfyzp,jdbcType=VARCHAR}
+    where F_PKEY = #{fPkey,jdbcType=VARCHAR}
+  </update>
+</mapper>
