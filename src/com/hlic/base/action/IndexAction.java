@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import com.hlic.base.service.UserService;
 @Controller
 @RequestMapping("/index")
 public class IndexAction {
-
 	@Autowired
 	private SysMenusService sysMenusService;
 	
@@ -47,7 +47,7 @@ public class IndexAction {
 			if(path.equals("/index/clientLogin.action")){
 				return "redirect:main.action";
 			}
-			return "redirect:" + path;  
+			return "redirect:" + path;
 		}else{
 			return "forward:clientLogin.action"; 
 		}

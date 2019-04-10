@@ -155,7 +155,7 @@ public class WorkFlowAction {
     	String userId = (String) httpSession.getAttribute("userId");
     	return workFlowService.queryWDDBList(userId);
     }
-    //我的单据
+    //我的待办
     @RequestMapping("/queryWDDB")
     public @ResponseBody List<String> queryWDDB(@RequestBody String inputJson){
     	JSONObject sendData = JSONObject.fromObject(inputJson);

@@ -669,7 +669,7 @@ public class BaseManageAction {
 		//导出文件的前缀
 		String filePrefix="ypxx";
 		//-1表示关闭自动刷新，手动控制写磁盘的时机，其它数据表示多少数据在内存保存，超过的则写入磁盘
-		int flushRows=100;
+		int flushRows=1000;
 		
 		//指导导出数据的title
 		List<String> fieldNames=new ArrayList<String>();
@@ -716,8 +716,29 @@ public class BaseManageAction {
 	
 	
 	@RequestMapping("/queryUniqueKeyValue")
-    public @ResponseBody String queryUniqueKeyValue(@RequestBody String inputJson) throws Exception{
-		return baseCommonGridService.queryUniqueKeyValue(inputJson);
+    public @ResponseBody ResultInfo queryUniqueKeyValue(@RequestBody String inputJson) throws Exception{
+		int F_CODE = ResultInfo.TYPE_RESULT_SUCCESS;
+		String numLen = baseCommonGridService.queryUniqueKeyValue(inputJson);
+		if("".equals(numLen)){
+			F_CODE = ResultInfo.TYPE_RESULT_FAIL;
+		}
+		ResultInfo resultInfo = new ResultInfo();
+		resultInfo.setType(F_CODE);
+		resultInfo.setMessage(numLen);
+		return resultInfo;
     }
-	
+	//sto和dct中查询唯一主键帮助信息
+	@RequestMapping("/queryPkHelpList")
+	public @ResponseBody List<Map<String, Object>> queryPkHelpList(@RequestBody String inputJson) throws Exception{
+		return baseCommonGridService.queryPkHelpList(inputJson);
+	}
+	//
+	@RequestMapping("/saveData")
+	public @ResponseBody ResultInfo saveData(@RequestBody String inputJson) throws Exception{
+		int F_CODE = baseCommonGridService.saveCommonTableData(inputJson);
+		ResultInfo resultInfo = new ResultInfo();
+		resultInfo.setType(F_CODE);
+		return resultInfo;
+	}
+	 
 }
